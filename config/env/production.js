@@ -8,12 +8,8 @@ module.exports = {
   },
   port: process.env.PORT || 8443,
   db: {
-     uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR ||'super amazing secret'|| 'mongodb://rajkiran:raj1234@ds051523.mongolab.com:51523/skyees',
-    options: {
-      user: '',
-      pass: ''
-    },
-    // Enable mongoose debug mode
+     uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI ||'super amazing secret'||'mongodb://rajkiran:raj1234@ds051523.mongolab.com:51523/skyees',
+     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
   },
   log: {
