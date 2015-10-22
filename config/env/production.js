@@ -8,7 +8,7 @@ module.exports = {
   },
   port: process.env.PORT || 8443,
   db: {
-     uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI ||'super amazing secret'||'mongodb://rajkiran:raj1234@ds051523.mongolab.com:51523/skyees',
+      uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI ||'mongodb://rajkiran:raj1234@ds051523.mongolab.com:51523/skyees',
      // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
   },
