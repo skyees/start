@@ -58,7 +58,7 @@ module.exports = function (app, db) {
     server = http.createServer(app);
   }
   // Create a new Socket.io server
-  var io = socketio.listen(server,'skyees.com');
+  var io = socketio.listen(server);
 
   // Create a MongoDB storage object
   var mongoStore = new MongoStore({
