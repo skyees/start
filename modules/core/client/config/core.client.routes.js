@@ -30,7 +30,13 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       data: {
         ignoreState: true
       }
-    }).state('privacy-policy', {
+    }).state('Terms of Service', {
+            url:'/Terms of Service',
+            templateUrl:'modules/core/client/views/Terms of Service.html',
+            data: {
+                ignoreState: true
+            }})
+        .state('privacy-policy', {
             url:'/privacy-policy',
             templateUrl:'modules/core/client/views/privacy-policy.html',
             data: {
