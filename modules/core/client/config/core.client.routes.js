@@ -32,7 +32,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       }
     }).state('Terms of Service', {
             url:'/Terms-of-Service',
-            templateUrl:'modules/core/client/views/Terms of Service.html',
+            templateUrl:'modules/core/client/views/Terms-of-Service.html',
             data: {
                 ignoreState: true
             }})
