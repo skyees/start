@@ -31,7 +31,7 @@ module.exports = function (config) {
         username: profile.username || generateUsername(profile),
         profileImageURL: (profile.id) ? '//graph.facebook.com/' + profile.id + '/picture?type=large' : undefined,
         provider: 'facebook',
-        providerIdentifierField: 'id',
+        providerIdentifierField:'id',
         providerData: providerData
       };
 
