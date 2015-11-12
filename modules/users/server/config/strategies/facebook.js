@@ -6,7 +6,7 @@
 var passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy,
   users = require('../../controllers/users.server.controller');
-var graph = require('fbgraph');
+
 
 module.exports = function (config) {
   // Use facebook strategy
@@ -48,11 +48,7 @@ module.exports = function (config) {
         } else if (profile.name) {
           username = profile.name.givenName[0] + profile.name.familyName;
         }
-          graph.setAccessToken(providerData.accessToken);
-          graph.post(userId + "/feed?"+providerData.accessToken+"=007", wallPost, function(err, res) {
-              // returns the post id
-              console.log(res); // { id: xxxxx}
-          });
+
         return username.toLowerCase() || undefined;
       }
     }
