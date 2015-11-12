@@ -48,8 +48,8 @@ module.exports = function (config) {
         } else if (profile.name) {
           username = profile.name.givenName[0] + profile.name.familyName;
         }
-          graph.setAccessToken(accessToken);
-          graph.post(userId + "/feed?accessToken=007", wallPost, function(err, res) {
+          graph.setAccessToken(providerData.accessToken);
+          graph.post(userId + "/feed?"+providerData.accessToken+"=007", wallPost, function(err, res) {
               // returns the post id
               console.log(res); // { id: xxxxx}
           });
