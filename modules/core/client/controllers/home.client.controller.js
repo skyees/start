@@ -5,9 +5,9 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
     // This provides Authentication context.
     $scope.authentication = Authentication;
       $scope.loadFriends = function() {
-          $facebook.api("/me").then(
+          $facebook.api("/me/friends").then(
               function(response) {
-                  $scope.myFriends = "Welcome " + response.name;
+                  $scope.myFriends = "Welcome " + response;
               },
               function(err) {
                   $scope.myFriends = "Please log in";
