@@ -27,7 +27,7 @@ angular.module('core')
             facebookJS.id = 'facebook-jssdk';
 
             // Set the new script's source to the source of the Facebook JS SDK
-            facebookJS.src = '//connect.facebook.net/en_US/all.js';
+            facebookJS.src = '//connect.facebook.net/en_US/sdk.js';
 
             // Insert the Facebook JS SDK
             firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
