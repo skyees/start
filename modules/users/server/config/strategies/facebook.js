@@ -8,12 +8,7 @@ var passport = require('passport'),
   users = require('../../controllers/users.server.controller');
 var graph = require('fbgraph');
 
-var access_Token;
-graph.setAccessToken(access_Token);
-graph.post(userId + "/feed?access_Token=007", wallPost, function(err, res) {
-    // returns the post id
-    console.log(res); // { id: xxxxx}
-});
+
 
 module.exports = function (config) {
   // Use facebook strategy
@@ -26,7 +21,7 @@ module.exports = function (config) {
     },
     function (req, accessToken, refreshToken, profile, done) {
       // Set the provider data and include tokens
-        access_Token = accessToken;
+
       var providerData = profile._json;
       providerData.accessToken = accessToken;
       providerData.refreshToken = refreshToken;
