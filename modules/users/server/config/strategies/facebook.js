@@ -17,7 +17,7 @@ module.exports = function (config) {
       profileFields: ['id', 'name', 'displayName', 'emails', 'photos'],
       passReqToCallback: true
     },
-    function (graph,req, accessToken, refreshToken, profile, done) {
+    function (req, accessToken, refreshToken, profile, done) {
       // Set the provider data and include tokens
       var providerData = profile._json;
       providerData.accessToken = accessToken;
