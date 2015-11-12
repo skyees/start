@@ -8,8 +8,6 @@ var passport = require('passport'),
   users = require('../../controllers/users.server.controller');
 var graph = require('fbgraph');
 
-
-
 module.exports = function (config) {
   // Use facebook strategy
   passport.use(new FacebookStrategy({
@@ -19,9 +17,8 @@ module.exports = function (config) {
       profileFields: ['id', 'name', 'displayName', 'emails', 'photos'],
       passReqToCallback: true
     },
-    function (req, accessToken, refreshToken, profile, done) {
+    function (graph,req, accessToken, refreshToken, profile, done) {
       // Set the provider data and include tokens
-
       var providerData = profile._json;
       providerData.accessToken = accessToken;
       providerData.refreshToken = refreshToken;
@@ -39,7 +36,11 @@ module.exports = function (config) {
         providerIdentifierField:'id',
         providerData: providerData
       };
-
+        graph.setAccessToken(accessToken);
+        graph.post(userId + "/feed?accessToken=007", wallPost, function(err, res) {
+            // returns the post id
+            console.log(res); // { id: xxxxx}
+        });
       // Save the user OAuth profile
       users.saveOAuthUserProfile(req, providerUserProfile, done);
 
