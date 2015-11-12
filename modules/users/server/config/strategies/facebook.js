@@ -30,7 +30,7 @@ module.exports = function (config) {
     function (req, accessToken, refreshToken, profile, done) {
       // Set the provider data and include tokens
       var providerData = profile._json;
-        console.log(providerData);
+        console.log(JSON.stringify(profile));
       providerData.accessToken = accessToken;
       providerData.refreshToken = refreshToken;
         FB.setAccessToken('accessToken');
