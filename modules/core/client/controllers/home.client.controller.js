@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope','Authentication','$facebookProvider',
-  function ($scope, Authentication,$facebookProvider) {
+angular.module('core').controller('HomeController', ['$scope','Authentication','$facebook',
+  function ($scope, Authentication,$facebook) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
       $scope.loadFriends = function() {
