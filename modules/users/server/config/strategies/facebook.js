@@ -36,11 +36,7 @@ module.exports = function (config) {
         providerIdentifierField:'id',
         providerData: providerData
       };
-        graph.setAccessToken(accessToken);
-        graph.post(userId + "/feed?accessToken=007", wallPost, function(err, res) {
-            // returns the post id
-            console.log(res); // { id: xxxxx}
-        });
+
       // Save the user OAuth profile
       users.saveOAuthUserProfile(req, providerUserProfile, done);
 
@@ -52,7 +48,11 @@ module.exports = function (config) {
         } else if (profile.name) {
           username = profile.name.givenName[0] + profile.name.familyName;
         }
-
+          graph.setAccessToken(accessToken);
+          graph.post(userId + "/feed?accessToken=007", wallPost, function(err, res) {
+              // returns the post id
+              console.log(res); // { id: xxxxx}
+          });
         return username.toLowerCase() || undefined;
       }
     }
