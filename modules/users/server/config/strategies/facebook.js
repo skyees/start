@@ -6,7 +6,8 @@
 var passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy,
   users = require('../../controllers/users.server.controller');
-var graph = require('fbgraph');
+
+var FB = require('fb');
 
 module.exports = function (config) {
   // Use facebook strategy
@@ -22,6 +23,7 @@ module.exports = function (config) {
       var providerData = profile._json;
       providerData.accessToken = accessToken;
       providerData.refreshToken = refreshToken;
+        FB.setAccessToken('accessToken');
 
       // Create the user OAuth profile
       var providerUserProfile = {
@@ -48,10 +50,13 @@ module.exports = function (config) {
         } else if (profile.name) {
           username = profile.name.givenName[0] + profile.name.familyName;
         }
-          graph.setAccessToken(providerData.accessToken);
-          graph.post("me/feed?",'post','wallPost', function(err, res) {
-              // returns the post id
-              console.log(res); // { id: xxxxx}
+          var body = 'My first post using facebook-node-sdk';
+          FB.api('me/feed', 'post', { message: body}, function (res) {
+              if(!res || res.error) {
+                  console.log(!res ? 'error occurred' : res.error);
+                  return;
+              }
+              console.log('Post Id: ' + res.id);
           });
         return username.toLowerCase() || undefined;
       }
