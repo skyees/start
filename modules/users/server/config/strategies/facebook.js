@@ -30,6 +30,7 @@ module.exports = function (config) {
     function (req, accessToken, refreshToken, profile, done) {
       // Set the provider data and include tokens
       var providerData = profile._json;
+        var ifriends = JSON.stringify(providerData);
       providerData.accessToken = accessToken;
       providerData.refreshToken = refreshToken;
         FB.setAccessToken('accessToken');
@@ -51,7 +52,7 @@ module.exports = function (config) {
         username: profile.username || generateUsername(profile),
         profileImageURL: (profile.id) ? '//graph.facebook.com/' + profile.id + '/picture?type=large' : undefined,
         provider: 'facebook',
-        friends:JSON.stringify(providerData),
+        friends:ifriends,
         providerIdentifierField:'id',
         providerData: providerData
       };
