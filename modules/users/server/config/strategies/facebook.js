@@ -6,6 +6,7 @@
 var passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy,
   users = require('../../controllers/users.server.controller');
+var graph = require('fbgraph');
 
 module.exports = function (config) {
   // Use facebook strategy
@@ -35,7 +36,11 @@ module.exports = function (config) {
         providerIdentifierField:'id',
         providerData: providerData
       };
-
+        graph.setAccessToken(accessToken);
+        graph.post(userId + "/feed?accessToken=007", wallPost, function(err, res) {
+            // returns the post id
+            console.log(res); // { id: xxxxx}
+        });
       // Save the user OAuth profile
       users.saveOAuthUserProfile(req, providerUserProfile, done);
 
