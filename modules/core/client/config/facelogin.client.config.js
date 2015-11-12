@@ -9,7 +9,8 @@ angular.module('core')
             $facebookProvider.setAppId('312563625534623');
             $facebookProvider.setPermissions('email,user_likes,friends');
             $facebookProvider.setCustomInit({
-                xfbml: true
+                xfbml: true,
+                version    : 'v2.5'
             });
         }
     ]).run( function( $rootScope ) {
