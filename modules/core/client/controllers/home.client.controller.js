@@ -10,7 +10,6 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
                   $scope.myFriends = response.data;
                   console.log($scope.myFriends);
               });
-
           });
       };
   }
