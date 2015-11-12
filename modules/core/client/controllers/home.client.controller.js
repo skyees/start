@@ -5,7 +5,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     // This provides Authentication context.
     $scope.authentication = Authentication;
       $scope.loadFriends = function() {
-
           $facebookProvider.api('/me/friends', function(response) {
               $scope.$apply(function() {
                   $scope.myFriends = response.data;
