@@ -9,8 +9,8 @@ angular.module('core')
             $facebookProvider.setAppId('312563625534623');
             $facebookProvider.setPermissions('email,user_likes,friends');
             $facebookProvider.setCustomInit({
-                xfbml: true,
-                version    : 'v2.5'
+                xfbml: true
+
             });
         }
     ]).run( function( $rootScope ) {
@@ -27,7 +27,7 @@ angular.module('core')
             facebookJS.id = 'facebook-jssdk';
 
             // Set the new script's source to the source of the Facebook JS SDK
-            facebookJS.src = '//connect.facebook.net/en_US/sdk.js';
+            facebookJS.src = '//connect.facebook.net/en_US/all.js';
 
             // Insert the Facebook JS SDK
             firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
