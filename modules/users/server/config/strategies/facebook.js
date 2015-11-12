@@ -11,7 +11,7 @@ var FB = require('fb');
 
 FB.api('4', function (res) {
     if(!res || res.error) {
-        console.log(!res ? 'error occurred' : res.error);
+        console.log(!res ? 'errorS occurred' : res.error);
         return;
     }
     console.log(res.id);
