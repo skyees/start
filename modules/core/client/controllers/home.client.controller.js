@@ -7,7 +7,7 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
       $scope.loadFriends = function() {
           $facebook.api("/me/friends").then(
               function(response) {
-                  $scope.myFriends = "Welcome " +response.data[0];
+                  $scope.myFriends = response.data;
               },
               function(err) {
                   $scope.myFriends = "Please log in";
