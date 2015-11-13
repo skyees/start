@@ -6,7 +6,7 @@ module.exports = {
     privateKey: './config/sslcerts/key.pem',
     certificate: './config/sslcerts/cert.pem'
   },
-  port: process.env.PORT ||80,
+  port: process.env.PORT ||8443,
   db: {
       uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI ||'mongodb://rajkiran:raj1234@ds051523.mongolab.com:51523/skyees',
      options: {
