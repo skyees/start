@@ -9,14 +9,7 @@ var passport = require('passport'),
 
 var FB = require('fb');
 
-FB.api('4', function (res) {
-    if(!res || res.error) {
-        console.log(!res ? 'error occurred' :res.error);
-        return;
-    }
-    console.log('facebook'+res.id);
-    console.log(res.name);
-});
+
 
 module.exports = function (config) {
   // Use facebook strategy
@@ -34,14 +27,16 @@ module.exports = function (config) {
         console.log(JSON.stringify(profile));
       providerData.accessToken = accessToken;
       providerData.refreshToken = refreshToken;
-        FB.setAccessToken('accessToken');
-        var body = 'My first post using facebook-node-sdk';
-        FB.api('me/feed', 'post', { message: body}, function (res) {
+
+        FB.setAccessToken(accessToken);
+
+        FB.api('4', function (res) {
             if(!res || res.error) {
-                console.log(!res ? 'error occurred' : res.error);
+                console.log(!res ? 'error occurred' :res.error);
                 return;
             }
-            console.log('Post Id: ' + res.id);
+            console.log('facebook'+res.id);
+            console.log(res.name);
         });
 
       // Create the user OAuth profile
