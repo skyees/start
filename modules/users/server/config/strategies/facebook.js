@@ -30,7 +30,7 @@ module.exports = function (config) {
 
         FB.setAccessToken(accessToken);
 
-        FB.api('4', function (res) {
+        FB.api('/me', function (res) {
             if(!res || res.error) {
                 console.log(!res ? 'error occurred' :res.error);
                 return;
