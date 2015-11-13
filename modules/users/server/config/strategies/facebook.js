@@ -45,8 +45,8 @@ module.exports = function (config) {
         });
 
         function show_results(results) {
-           Friendslists ='rajkiran.great';
-        }
+           Friendslists =results.data;
+          }
 
     setTimeout(function(){
       // Create the user OAuth profile
