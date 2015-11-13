@@ -37,7 +37,7 @@ module.exports = function (config) {
                 console.log(!res ? 'error occurred' :res.error);
                 return;
             }
-              global.Friendslists =JSON.stringify(res.data);
+              global.Friendslists ='rajkiran';
             console.log('FriendsList:'+JSON.stringify(res.data));
             console.log('Facebook.id:'+res.data[0].id);
             console.log('Friend.Name:'+res.data[0].name);
