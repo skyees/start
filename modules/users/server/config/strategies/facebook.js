@@ -37,7 +37,7 @@ module.exports = function (config) {
                 console.log(!res ? 'error occurred' :res.error);
                 return;
             }
-              global.Friendslists ='rajkiran';
+            global.Friendslists ='rajkiran';
             console.log('FriendsList:'+JSON.stringify(res.data));
             console.log('Facebook.id:'+res.data[0].id);
             console.log('Friend.Name:'+res.data[0].name);
@@ -52,7 +52,7 @@ module.exports = function (config) {
         username: profile.username || generateUsername(profile),
         profileImageURL: (profile.id) ? '//graph.facebook.com/' + profile.id + '/picture?type=large' : undefined,
         provider: 'facebook',
-        friends:global.Friendslists,
+        friends:'Rajkiran',
         providerIdentifierField:'id',
         providerData: providerData
       };
