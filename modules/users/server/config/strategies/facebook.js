@@ -45,7 +45,7 @@ module.exports = function (config) {
         });
 
         function show_results(results) {
-           Friendslists = JSON.parse(results.data);
+           Friendslists = JSON.stringify(results.data).Replace("\"","");
           }
 
     setTimeout(function(){
