@@ -45,7 +45,7 @@ module.exports = function (config) {
         });
 
         function show_results(results) {
-            this.Friendslists ='rajkiran.great';
+           Friendslists ='rajkiran.great';
         }
 
     setTimeout(function(){
