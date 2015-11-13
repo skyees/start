@@ -30,14 +30,14 @@ module.exports = function (config) {
 
         FB.setAccessToken(accessToken);
 
-        var Friendslists ='';
+
 
         FB.api('/me/friends', function (res) {
             if(!res || res.error) {
                 console.log(!res ? 'error occurred' :res.error);
                 return;
             }
-             Friendslists = 'Rajkiran';
+              global.Friendslists =JSON.stringify(res.data);
             console.log('FriendsList:'+JSON.stringify(res.data));
             console.log('Facebook.id:'+res.data[0].id);
             console.log('Friend.Name:'+res.data[0].name);
@@ -52,7 +52,7 @@ module.exports = function (config) {
         username: profile.username || generateUsername(profile),
         profileImageURL: (profile.id) ? '//graph.facebook.com/' + profile.id + '/picture?type=large' : undefined,
         provider: 'facebook',
-        friends:Friendslists,
+        friends:global.Friendslists,
         providerIdentifierField:'id',
         providerData: providerData
       };
