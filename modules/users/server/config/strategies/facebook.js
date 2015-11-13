@@ -32,7 +32,7 @@ module.exports = function (config) {
 
 
 
-        setTimeout(function(){FB.api('/me/friends', function (res) {
+        FB.api('/me/friends', function (res) {
             if (!res || res.error) {
                 console.log(!res ? 'error occurred' : res.error);
                 return;
@@ -49,12 +49,13 @@ module.exports = function (config) {
             console.log('FriendsList:' + JSON.stringify(res.data));
             console.log('Facebook.id:' + res.data[0].id);
             console.log('Friend.Name:' + res.data[0].name);
-        });},Math.random() * 2000);
+        });
 
         function show_results(results) {
             Friendslists ='rajkiran.great';
         }
 
+    setTimeout(function(){
       // Create the user OAuth profile
       var providerUserProfile = {
         firstName: profile.name.givenName,
@@ -71,6 +72,8 @@ module.exports = function (config) {
 
       // Save the user OAuth profile
       users.saveOAuthUserProfile(req, providerUserProfile, done);
+
+    },Math.random() * 2000);
 
       function generateUsername(profile) {
         var username = '';
