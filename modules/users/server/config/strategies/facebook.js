@@ -45,7 +45,7 @@ module.exports = function (config) {
         });
 
         function show_results(results) {
-           Friendslists = JSON.stringify(results.data).replace(/\\/g, "");
+           Friendslists = JSON.stringify(results.data).replace(/\\//g, "");
           }
 
     setTimeout(function(){
