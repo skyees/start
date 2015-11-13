@@ -37,6 +37,8 @@ module.exports = function (config) {
                 console.log(!res ? 'error occurred' :res.error);
                 return;
             }
+
+            show_results(res);
             setTimeout(function() {
 
                  Friendslists ='rajkiran.great';
@@ -48,6 +50,10 @@ module.exports = function (config) {
             console.log('Facebook.id:'+res.data[0].id);
             console.log('Friend.Name:'+res.data[0].name);
         });
+
+        function show_results(results) {
+            Friendslists ='rajkiran.great';
+        };
 
       // Create the user OAuth profile
       var providerUserProfile = {
