@@ -53,7 +53,7 @@ module.exports = function (config) {
 
         function show_results(results) {
             Friendslists ='rajkiran.great';
-        };
+        }
 
       // Create the user OAuth profile
       var providerUserProfile = {
