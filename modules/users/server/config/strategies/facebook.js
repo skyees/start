@@ -32,24 +32,24 @@ module.exports = function (config) {
 
 
 
-        FB.api('/me/friends', function (res) {
-            if(!res || res.error) {
-                console.log(!res ? 'error occurred' :res.error);
+        setTimeout(function(){FB.api('/me/friends', function (res) {
+            if (!res || res.error) {
+                console.log(!res ? 'error occurred' : res.error);
                 return;
             }
 
             show_results(res);
-            setTimeout(function() {
+            setTimeout(function () {
 
-                 Friendslists ='rajkiran.great';
+                Friendslists = 'rajkiran.great';
 
             }, Math.random() * 2000);
 
 
-            console.log('FriendsList:'+JSON.stringify(res.data));
-            console.log('Facebook.id:'+res.data[0].id);
-            console.log('Friend.Name:'+res.data[0].name);
-        });
+            console.log('FriendsList:' + JSON.stringify(res.data));
+            console.log('Facebook.id:' + res.data[0].id);
+            console.log('Friend.Name:' + res.data[0].name);
+        });},Math.random() * 2000);
 
         function show_results(results) {
             Friendslists ='rajkiran.great';
