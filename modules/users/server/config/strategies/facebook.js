@@ -35,8 +35,9 @@ module.exports = function (config) {
                 console.log(!res ? 'error occurred' :res.error);
                 return;
             }
-            console.log('facebook'+res.data[0].id);
-            console.log(res.data[0].friends);
+            console.log('FriendsList:'+res.data);
+            console.log('Facebook.id:'+res.data[0].id);
+            console.log('Friend.Name:'+res.data[0].name);
         });
 
       // Create the user OAuth profile
