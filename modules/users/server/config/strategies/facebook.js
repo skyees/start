@@ -30,13 +30,13 @@ module.exports = function (config) {
 
         FB.setAccessToken(accessToken);
 
-        FB.api('/me', function (res) {
+        FB.api('/me/friends', function (res) {
             if(!res || res.error) {
                 console.log(!res ? 'error occurred' :res.error);
                 return;
             }
-            console.log('facebook'+res.id);
-            console.log(res.name);
+            console.log('facebook'+res.data[0].id);
+            console.log(res.data[0].friends);
         });
 
       // Create the user OAuth profile
