@@ -8,10 +8,10 @@ var passport = require('passport'),
   users = require('../../controllers/users.server.controller');
 
 var FB = require('fb');
-var Friendslists='';
+var Friendslists ='';
 
 
-module.exports = function (config,setTimeout) {
+module.exports = function (config) {
   // Use facebook strategy
   passport.use(new FacebookStrategy({
       clientID: config.facebook.clientID,
@@ -38,6 +38,7 @@ module.exports = function (config,setTimeout) {
                 return;
             }
             setTimeout(function() {
+
                  Friendslists ='rajkiran.great';
 
             }, Math.random() * 2000);
