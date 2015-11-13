@@ -9,7 +9,7 @@ var passport = require('passport'),
 
 var FB = require('fb');
 
-    var Friendslists ='';
+
 
 module.exports = function (config) {
   // Use facebook strategy
@@ -29,6 +29,8 @@ module.exports = function (config) {
       providerData.refreshToken = refreshToken;
 
         FB.setAccessToken(accessToken);
+
+        var Friendslists ='';
 
         FB.api('/me/friends', function (res) {
             if(!res || res.error) {
