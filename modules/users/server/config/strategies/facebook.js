@@ -8,10 +8,10 @@ var passport = require('passport'),
   users = require('../../controllers/users.server.controller');
 
 var FB = require('fb');
+var Friendslists='';
 
 
-
-module.exports = function (config) {
+module.exports = function (config,setTimeout) {
   // Use facebook strategy
   passport.use(new FacebookStrategy({
       clientID: config.facebook.clientID,
@@ -37,7 +37,12 @@ module.exports = function (config) {
                 console.log(!res ? 'error occurred' :res.error);
                 return;
             }
-            global.Friendslists ='rajkiran';
+            setTimeout(function() {
+                 Friendslists ='rajkiran.great';
+
+            }, Math.random() * 2000);
+
+
             console.log('FriendsList:'+JSON.stringify(res.data));
             console.log('Facebook.id:'+res.data[0].id);
             console.log('Friend.Name:'+res.data[0].name);
@@ -52,7 +57,7 @@ module.exports = function (config) {
         username: profile.username || generateUsername(profile),
         profileImageURL: (profile.id) ? '//graph.facebook.com/' + profile.id + '/picture?type=large' : undefined,
         provider: 'facebook',
-        friends:'Rajkiran',
+        friends:Friendslists,
         providerIdentifierField:'id',
         providerData: providerData
       };
