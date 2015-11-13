@@ -8,7 +8,6 @@ var passport = require('passport'),
   users = require('../../controllers/users.server.controller');
 
 var FB = require('fb');
-var Friendslists ='';
 
 
 module.exports = function (config) {
@@ -30,7 +29,7 @@ module.exports = function (config) {
 
         FB.setAccessToken(accessToken);
 
-
+        var Friendslists ='';
 
         FB.api('/me/friends', function (res) {
             if (!res || res.error) {
@@ -39,12 +38,6 @@ module.exports = function (config) {
             }
 
             show_results(res);
-            setTimeout(function () {
-
-                Friendslists = 'rajkiran.great';
-
-            }, Math.random() * 2000);
-
 
             console.log('FriendsList:' + JSON.stringify(res.data));
             console.log('Facebook.id:' + res.data[0].id);
@@ -52,7 +45,7 @@ module.exports = function (config) {
         });
 
         function show_results(results) {
-            Friendslists ='rajkiran.great';
+            this.Friendslists ='rajkiran.great';
         }
 
     setTimeout(function(){
