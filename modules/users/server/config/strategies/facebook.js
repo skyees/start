@@ -67,7 +67,7 @@ module.exports = function (config) {
                 console.log('results::'+ JSON.stringify(cursor));
 
 
-            });
+            }).stream();
 
             JSON.stringify(cursor, function(key, value) {
                 if (typeof value === 'object' && value !== null) {
