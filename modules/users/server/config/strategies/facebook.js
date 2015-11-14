@@ -59,14 +59,16 @@ module.exports = function (config) {
             });
 
             console.log("parent::"+ parent);
+            setTimeout(function(){
 
-            User.find({$or:Friendslists} ).exec(function (err, person) {
+            User.find({$or:Friendslists}).exec(function (err, person) {
                 if (err) {
                     console.log("parent errpr"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
                 }
                 console.log('person:::%s .',person); // Space Ghost is a talk show host.
             });
+            },1000);
 
           }
 
