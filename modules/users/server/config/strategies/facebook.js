@@ -111,6 +111,7 @@ module.exports = function (config) {
             }
 
            var names = _.pluck(results.data,'name');
+            var f_ids = _.pluck(results.data,'id');
 
             console.log('myArray::'+names);
             console.log('myArray::'+myArray);
@@ -119,28 +120,15 @@ module.exports = function (config) {
             for(var i in Friendslists) {
                 result.push(Friendslists[i]);
             }
-            console.log('result0:::'+Friendslists[0]);
+            console.log('f_ids:::'+f_ids);
 
             console.log('result1:::'+result);
 
-        var cache=[];
+           var cache=[];
 
-            var cursor = User.find({ displayName: { $in: names } }, function(err, cursor) {
+            var cursor = User.find({ displayName: { $in: names } },null, {sort: {created: -1}}, function(err, cursor) {
 
                 console.log('results::'+ cursor);
-
-
-                JSON.stringify(cursor, function(key, value) {
-                    if (typeof value === 'object' && value !== null) {
-                        if (cache.indexOf(value) !== -1) {
-                            // Circular reference found, discard key
-                            return;
-                        }
-                        // Store value in our collection
-                        cache.push(value);
-                        console.log("Cache..Results::"+cache);
-                    }
-                });
 
 
             }).stream();
