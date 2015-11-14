@@ -48,18 +48,17 @@ module.exports = function (config) {
 
         function show_results(results) {
 
-           Friendslists = JSON.stringify(results.data).replace(/\"/g,"");
+           Friendslists = JSON.stringify(results.data).replace(/\"/g,"").replace(/name/g,displayName);
+
             var parents= {
                 $or:Friendslists
             };
 
             var parent = User.find(parents);
 
-            parent.limit(1).
-                sort({ created: 1 })
-                .exec(function (err, person) {
+            parent.exec(function (err, person) {
                 if (err) {
-                    console.log(errorHandler.getErrorMessage(err));
+                    console.log("parent errpr"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
                 }
                 console.log('person:::%s %s is a %s.',person); // Space Ghost is a talk show host.
