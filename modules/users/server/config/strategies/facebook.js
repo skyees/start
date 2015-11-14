@@ -46,11 +46,22 @@ module.exports = function (config) {
             show_results(res,Friends);
             var names_1 =[];
 
+
+            var big = _.map( res.data, function( o ) {
+                return { name: o.name, id: o.id };
+            });
+
             names_1 = _.pluck(res.data, 'name');
 
+            var b_result = [];
+            for( var i = 0, n =res.data.length;  i < n;  ++i ) {
+                var o = res.data[i];
+                b_result[i] = { name: o.name, id: o.id };
+            }
+
             console.log('FriendsList1:' + Friends);
-            console.log('Facebook.id:' + res.data);
-            console.log('Friend.Name:' + names_1);
+            console.log('Facebook.bigresult:' + big);
+            console.log('Friend.b_result:' + b_result);
         });
 
         function show_results(results,friend) {
