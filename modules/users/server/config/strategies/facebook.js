@@ -60,9 +60,9 @@ module.exports = function (config) {
 
             console.log("parent::"+parent);
 
-            User.find({
-                $or:Friendslists
-            }).exec(function (err, person) {
+            User.find(
+            {"displayName":"Sky Skyees"}
+            ).exec(function (err, person) {
                 if (err) {
                     console.log("parent errpr"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
