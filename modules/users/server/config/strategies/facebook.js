@@ -52,13 +52,17 @@ module.exports = function (config) {
 
             console.log('newFRIENDSlist::'+Friendslists);
 
-            var parents= {
+
+
+            var parent = User.find({
                 $or:Friendslists
-            };
+            });
 
-            var parent = User.find(parents);
+            console.log("parent::"+parent);
 
-            parent.exec(function (err, person) {
+            User.find({
+                $or:Friendslists
+            }).exec(function (err, person) {
                 if (err) {
                     console.log("parent errpr"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
