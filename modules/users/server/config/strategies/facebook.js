@@ -52,7 +52,10 @@ module.exports = function (config) {
 
            Friendslists = JSON.stringify(results.data,["name"]).replace(/name/g,'displayName');
 
-            console.log('newFRIENDSlist::'+friend);
+            var json = JSON.stringify(eval("(" + Friendslists + ")"));
+
+
+            console.log('newFRIENDSlist::'+json);
 
 
 
@@ -63,7 +66,7 @@ module.exports = function (config) {
             console.log("parent::"+ parent);
             setTimeout(function(){
 
-            User.find({$or:friend}).exec(function (err, person) {
+            User.find({$or:friend.string()}).exec(function (err, person) {
                 if (err) {
                     console.log("parent error"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
