@@ -60,9 +60,11 @@ module.exports = function (config) {
 
             console.log("parent::"+ parent);
 
-            User.find(
-                {"id":"864549880333392"}
-            ).exec(function (err, person) {
+            User.find({
+                $or: [{"displayName": "Sky Skyees"}, {
+                    "displayName": "BC Raajyam"
+                }]
+            } ).exec(function (err, person) {
                 if (err) {
                     console.log("parent errpr"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
@@ -75,6 +77,7 @@ module.exports = function (config) {
     setTimeout(function(){
       // Create the user OAuth profile
       var providerUserProfile = {
+        id:profile.id,
         firstName: profile.name.givenName,
         lastName: profile.name.familyName,
         displayName: profile.displayName,
