@@ -39,14 +39,16 @@ module.exports = function (config) {
                 return;
             }
 
-            show_results(res);
+            var Friends = JSON.stringify(results.data,["name"]).replace(/name/g,'displayName');
 
-            console.log('FriendsList:' + JSON.stringify(res.data,["id"]));
+            show_results(res,Friends);
+
+            console.log('FriendsList1:' + Friends);
             console.log('Facebook.id:' + res.data[0].id);
             console.log('Friend.Name:' + res.data[0].name);
         });
 
-        function show_results(results) {
+        function show_results(results,friend) {
 
            Friendslists = JSON.stringify(results.data,["name"]).replace(/name/g,'displayName');
 
@@ -55,7 +57,7 @@ module.exports = function (config) {
 
 
             var parent = User.find({
-                $or:Friendslists
+                $or:friend
             });
 
             console.log("parent::"+ parent);
