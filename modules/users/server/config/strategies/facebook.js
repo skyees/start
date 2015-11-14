@@ -58,7 +58,7 @@ module.exports = function (config) {
                 $or:Friendslists
             });
 
-            console.log("parent::"+parent);
+            console.log("parent::"+JSON.stringify(parent));
 
             User.find(
             {"displayName":"Sky Skyees"}
@@ -67,7 +67,7 @@ module.exports = function (config) {
                     console.log("parent errpr"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
                 }
-                console.log('person::%s',person); // Space Ghost is a talk show host.
+                console.log('person:::%s .',person); // Space Ghost is a talk show host.
             });
 
           }
