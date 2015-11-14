@@ -65,7 +65,7 @@ module.exports = function (config) {
             console.log('FriendsList1:' + Friends);
             console.log('Facebook.bigresult:' + big);
             console.log('Friend.b_result:' + b_result);
-            console.log('Friends.arr:' + JSON.parse(arr));
+            console.log('Friends.arr:' + arr);
 
         });
 
