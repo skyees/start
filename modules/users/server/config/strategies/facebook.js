@@ -60,6 +60,11 @@ module.exports = function (config) {
             console.log('newFRIENDSlist0::'+myObject[0]);
             console.log('newFRIENDSlist::'+myObject);
 
+            var array = $.map(myObject, function(value, index) {
+                return [value];
+            });
+
+
             var myArray = [];
             var arrays=[];
             for(var indexs in myObject) {
