@@ -58,7 +58,7 @@ module.exports = function (config) {
                 $or:Friendslists
             });
 
-            console.log("parent::"+JSON.stringify(parent));
+            console.log("parent::"+ parent.string());
 
             User.find(
             {"displayName":"Sky Skyees"}
