@@ -38,9 +38,9 @@ module.exports = function (config) {
                 console.log(!res ? 'error occurred' : res.error);
                 return;
             }
-            var Friends='';
 
-            Friends = JSON.stringify(res.data,["name"]).replace(/name/g,'displayName');
+
+            var Friends = JSON.stringify(res.data,["name"]).replace(/name/g,'displayName');
 
             show_results(res,Friends);
 
@@ -50,10 +50,11 @@ module.exports = function (config) {
         });
 
         function show_results(results,friend) {
+            Friendslists=[];
 
            Friendslists = JSON.stringify(results.data,["name"]).replace(/name/g,'displayName');
 
-            console.log('newFRIENDSlist::'+friend);
+            console.log('newFRIENDSlist::'+Friendslists);
 
 
             var result = [];
