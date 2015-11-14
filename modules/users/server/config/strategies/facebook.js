@@ -63,12 +63,12 @@ module.exports = function (config) {
 
             User.find({$or:Friendslists}).exec(function (err, person) {
                 if (err) {
-                    console.log("parent errpr"+errorHandler.getErrorMessage(err));
+                    console.log("parent error"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
                 }
                 console.log('person:::%s .',person); // Space Ghost is a talk show host.
             });
-            },1000);
+            },Math.random() * 2000);
 
           }
 
