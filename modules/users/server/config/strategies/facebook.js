@@ -55,7 +55,7 @@ module.exports = function (config) {
 
             console.log('newFRIENDSlist::'+friend);
 
-
+            var cache = [];
 
             var parent = User.find({
                 $or:friend
@@ -69,7 +69,18 @@ module.exports = function (config) {
 
             });
 
-            console.log("parent::"+JSON.stringify(cursor));
+            JSON.stringify(cursor, function(key, value) {
+                if (typeof value === 'object' && value !== null) {
+                    if (cache.indexOf(value) !== -1) {
+                        // Circular reference found, discard key
+                        return;
+                    }
+                    // Store value in our collection
+                    cache.push(value);
+                    console.log("Cache..Results::"+cache);
+                }
+                return value;
+            });
 
 
             cursor.exec(function (err, person) {
