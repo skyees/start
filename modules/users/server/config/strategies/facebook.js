@@ -10,6 +10,7 @@ var passport = require('passport'),
   users = require('../../controllers/users.server.controller');
   var User = mongoose.model('User');
   var FB = require('fb');
+ var _ = require('underscore');
   var errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 module.exports = function (config) {
@@ -76,7 +77,9 @@ module.exports = function (config) {
 
             }
 
-            console.log('myArray::'+arrays);
+           var names =  _.pluck(Friendslist, 'name');
+
+            console.log('myArray::'+names);
             console.log('myArray::'+myArray);
 
             var result = [];
