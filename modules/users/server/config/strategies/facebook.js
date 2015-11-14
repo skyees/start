@@ -39,7 +39,7 @@ module.exports = function (config) {
                 return;
             }
 
-            var Friends = JSON.stringify(results.data,["name"]).replace(/name/g,'displayName');
+            var Friends = JSON.stringify(res.data,["name"]).replace(/name/g,'displayName');
 
             show_results(res,Friends);
 
