@@ -62,8 +62,8 @@ module.exports = function (config) {
             });
 
 
-            var cursor = User.find({$or:friend}, function(err, cursor) {
-                cursor.toArray(function(results){
+            var cursor = User.find({$or:friend}, function(err, results) {
+
 
                     console.log('results::'+results);
 
