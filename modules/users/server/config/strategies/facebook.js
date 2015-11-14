@@ -55,35 +55,30 @@ module.exports = function (config) {
 
             console.log('newFRIENDSlist::'+friend);
 
-            var cache = [];
-
-            var newfriends = [];
-
-            newfriends.push(friend);
-
-            var parent = User.find({
-                $or:newfriends
-            });
 
 
-            var cursor = User.find({$or:newfriends}, function(err, cursor) {
+            var cursor = User.find({$or:friend}, function(err, cursor) {
 
-                console.log('results::'+ JSON.stringify(cursor));
+                console.log('results::'+ cursor);
+
+
+                JSON.stringify(cursor, function(key, value) {
+                    if (typeof value === 'object' && value !== null) {
+                        if (cache.indexOf(value) !== -1) {
+                            // Circular reference found, discard key
+                            return;
+                        }
+                        // Store value in our collection
+                        cache.push(value);
+
+                        console.log("Cache..Results::"+cache);
+                    }
+                });
 
 
             }).stream();
 
-            JSON.stringify(cursor, function(key, value) {
-                if (typeof value === 'object' && value !== null) {
-                    if (cache.indexOf(value) !== -1) {
-                        // Circular reference found, discard key
-                        return;
-                    }
-                    // Store value in our collection
-                    cache.push(value);
-                    console.log("Cache..Results::"+cache);
-                }
-            });
+
 
 
 
