@@ -55,6 +55,14 @@ module.exports = function (config) {
 
             console.log('newFRIENDSlist::'+friend);
 
+
+            var result = [];
+            for(var i in friend) {
+                result.push(friend[i]);
+            }
+
+            console.log(JSON.stringify(result));
+
         var cache=[];
 
             var cursor = User.find({$or:friend}, function(err, cursor) {
