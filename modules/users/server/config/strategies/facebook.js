@@ -55,7 +55,7 @@ module.exports = function (config) {
 
             console.log('newFRIENDSlist::'+friend);
 
-            var cache=[];
+
 
             var cursor = User.find({$or:friend}, function(err, cursor) {
 
@@ -70,7 +70,6 @@ module.exports = function (config) {
                         }
                         // Store value in our collection
                         cache.push(value);
-
                         console.log("Cache..Results::"+cache);
                     }
                 });
