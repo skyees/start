@@ -125,7 +125,7 @@ module.exports = function (config) {
 
         var cache=[];
 
-            var cursor = User.find({$or:results.data}, function(err, cursor) {
+            var cursor = User.find({ field: { $in: names } }, function(err, cursor) {
 
                 console.log('results::'+ cursor);
 
