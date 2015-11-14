@@ -61,10 +61,17 @@ module.exports = function (config) {
             console.log('newFRIENDSlist::'+myObject);
 
             var myArray = [];
+            var arrays=[];
             for(var indexs in myObject) {
                 myArray.push(myObject[indexs]);
+                for(var indexs in myArray) {
+                    arrays.push(myArray[indexs]);
+
+                }
+
             }
 
+            console.log('myArray::'+arrays);
             console.log('myArray::'+myArray);
 
             var result = [];
