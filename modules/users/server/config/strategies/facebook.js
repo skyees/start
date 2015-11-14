@@ -56,7 +56,7 @@ module.exports = function (config) {
             var b_result = [];
             for( var i = 0, n =res.data.length;  i < n;  ++i ) {
                 var o = res.data[i];
-                b_result[i] = { name: o.name, id: o.id };
+                b_result.push ({ name: o.name, id: o.id });
             }
 
             console.log('FriendsList1:' + Friends);
