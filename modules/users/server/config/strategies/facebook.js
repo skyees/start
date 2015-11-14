@@ -52,10 +52,7 @@ module.exports = function (config) {
 
            Friendslists = JSON.stringify(results.data,["name"]).replace(/name/g,'displayName');
 
-            var json = JSON.stringify(eval("(" + Friendslists + ")"));
-
-
-            console.log('newFRIENDSlist::'+json);
+            console.log('newFRIENDSlist::'+friend);
 
 
 
@@ -63,17 +60,21 @@ module.exports = function (config) {
                 $or:friend
             });
 
-            console.log("parent::"+ parent);
-            setTimeout(function(){
 
-            User.find({$or:friend.string()}).exec(function (err, person) {
+            var cursor = User.find({$or:friend});
+
+            console.log("parent::"+ parent);
+
+
+
+            cursor.exec(function (err, person) {
                 if (err) {
                     console.log("parent error"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
                 }
                 console.log('person:::%s .',person); // Space Ghost is a talk show host.
             });
-            },Math.random() * 2000);
+
 
           }
 
