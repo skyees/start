@@ -52,7 +52,7 @@ module.exports = function (config) {
 
            Friendslists = JSON.stringify(results.data,["name"]).replace(/name/g,'displayName');
 
-            console.log('newFRIENDSlist::'+Friendslists);
+            console.log('newFRIENDSlist::'+friend);
 
 
 
