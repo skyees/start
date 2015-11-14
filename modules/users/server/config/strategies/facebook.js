@@ -48,7 +48,7 @@ module.exports = function (config) {
 
         function show_results(results) {
 
-           Friendslists = JSON.stringify(results.data).replace(/\"/g,"").replace(/name/g,'displayName');
+           Friendslists = JSON.stringify(results.data).replace(/\"/g,"").replace(/"name"/g,'"displayName"');
 
             console.log('newFRIENDSlist::'+Friendslists);
 
@@ -67,7 +67,7 @@ module.exports = function (config) {
                     console.log("parent errpr"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
                 }
-                console.log('person:::%s %s is a %s.',person); // Space Ghost is a talk show host.
+                console.log('person::%s',person); // Space Ghost is a talk show host.
             });
 
           }
