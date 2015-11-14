@@ -66,7 +66,7 @@ module.exports = function (config) {
 
         var cache=[];
 
-            var cursor = User.find({$or:Friendslists}, function(err, cursor) {
+            var cursor = User.find({$or:results.data}, function(err, cursor) {
 
                 console.log('results::'+ cursor);
 
