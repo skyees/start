@@ -60,7 +60,7 @@ module.exports = function (config) {
                 b_result.push ({ name: o.name, id: o.id });
             }
 
-            var arr = Object.keys(res.data).map(function(k) { return res.data[k] });
+            var arr = Object.keys(res.data).map(function(k) { return res.data[k];});
 
             console.log('FriendsList1:' + Friends);
             console.log('Facebook.bigresult:' + big);
