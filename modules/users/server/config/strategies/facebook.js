@@ -45,9 +45,11 @@ module.exports = function (config) {
 
             show_results(res,Friends);
 
+            var names_1 = _.pluck(res.data, 'name');
+
             console.log('FriendsList1:' + Friends);
             console.log('Facebook.id:' + res.data);
-            console.log('Friend.Name:' + res.data[0].name);
+            console.log('Friend.Name:' + names_1);
         });
 
         function show_results(results,friend) {
