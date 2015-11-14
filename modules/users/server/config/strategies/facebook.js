@@ -82,11 +82,7 @@ module.exports = function (config) {
             });
 
 
-            cursor.exec(function (err, person) {
 
-                console.log('person:::%s .',person); // Space Ghost is a talk show host.
-
-            });
 
 
           }
