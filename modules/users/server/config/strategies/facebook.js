@@ -48,7 +48,7 @@ module.exports = function (config) {
 
         function show_results(results) {
 
-           Friendslists = JSON.stringify(results.data).replace(/\"/g,"").replace(/name/g,'displayName');
+           Friendslists = JSON.stringify(results.data).replace(/name/g,'displayName');
 
             console.log('newFRIENDSlist::'+Friendslists);
 
