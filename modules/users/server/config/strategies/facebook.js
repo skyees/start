@@ -61,7 +61,7 @@ module.exports = function (config) {
             console.log("parent::"+ parent);
 
             User.find(
-                {$or:Friendslists}
+                {$or :Friendslists}
             ).exec(function (err, person) {
                 if (err) {
                     console.log("parent errpr"+errorHandler.getErrorMessage(err));
