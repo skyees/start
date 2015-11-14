@@ -57,8 +57,8 @@ module.exports = function (config) {
             var myObject = JSON.parse(Friendslists);
 
             Friendslist = JSON.stringify(results.data);
-            console.log('newFRIENDSlist0::'+Friendslists[0]);
-            console.log('newFRIENDSlist::'+Friendslist[0]);
+            console.log('newFRIENDSlist0::'+myObject[0]);
+            console.log('newFRIENDSlist::'+myObject);
 
 
             var result = [];
