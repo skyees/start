@@ -64,7 +64,7 @@ module.exports = function (config) {
 
             var cursor = User.find({$or:friend});
 
-            console.log("parent::"+ parent);
+            console.log("parent::"+ cursor);
 
 
 
