@@ -110,7 +110,7 @@ module.exports = function (config) {
 
             }
 
-           var names = _.pluck(Friendslist,'name');
+           var names = _.pluck(results.data,'name');
 
             console.log('myArray::'+names);
             console.log('myArray::'+myArray);
