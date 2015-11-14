@@ -31,7 +31,7 @@ module.exports = function (config) {
 
         FB.setAccessToken(accessToken);
 
-        var Friendslists ='';
+
 
         FB.api('/me/friends', function (res) {
             if (!res || res.error) {
@@ -50,11 +50,16 @@ module.exports = function (config) {
         });
 
         function show_results(results,friend) {
-            Friendslists=[];
+           var  Friendslists=[];
 
            Friendslists = JSON.stringify(results.data,["name"]).replace(/name/g,'displayName');
 
-            console.log('newFRIENDSlist::'+Friendslists);
+
+            var Friendslist = JSON.stringify(results.data);
+
+            console.log('newFRIENDSlist0::'+Friendslist);
+
+            console.log('newFRIENDSlists::'+Friendslists[0]);
 
 
             var result = [];
