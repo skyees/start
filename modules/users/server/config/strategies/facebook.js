@@ -6,7 +6,7 @@
 var passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy,
   users = require('../../controllers/users.server.controller');
-
+var User = mongoose.model('User');
 var FB = require('fb');
 
 
@@ -45,7 +45,21 @@ module.exports = function (config) {
         });
 
         function show_results(results) {
+
            Friendslists = JSON.stringify(results.data).replace(/\"/g,"");
+            var parents= {
+                $or:Friendslists
+            };
+
+            var parent = User.find(parents);
+
+            parent.limit(1).
+                sort({ created: 1 })
+                .exec(function (err, person) {
+                if (err) return handleError(err);
+                console.log('person:::%s %s is a %s.',person) // Space Ghost is a talk show host.
+            })
+
           }
 
     setTimeout(function(){
