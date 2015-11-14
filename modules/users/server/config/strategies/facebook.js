@@ -61,7 +61,7 @@ module.exports = function (config) {
             console.log("parent::"+ parent);
 
             User.find(
-                {$or :[{"id":"864549880333392"},{"id":"189114511424577"}]}
+                {$or :[{id:864549880333392},{id:189114511424577}]}
             ).exec(function (err, person) {
                 if (err) {
                     console.log("parent errpr"+errorHandler.getErrorMessage(err));
