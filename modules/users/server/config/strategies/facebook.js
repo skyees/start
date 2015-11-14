@@ -64,11 +64,6 @@ module.exports = function (config) {
 
             var cursor = User.find({$or:friend}, function(err, cursor) {
 
-                if (err) {
-                    console.log("parent error"+errorHandler.getErrorMessage(err));
-                    return errorHandler.getErrorMessage(err);
-                }
-
                 console.log('results::'+ JSON.stringify(results));
 
 
@@ -78,11 +73,9 @@ module.exports = function (config) {
 
 
             cursor.exec(function (err, person) {
-                if (err) {
-                    console.log("parent error"+errorHandler.getErrorMessage(err));
-                    return errorHandler.getErrorMessage(err);
-                }
+
                 console.log('person:::%s .',person); // Space Ghost is a talk show host.
+
             });
 
 
