@@ -59,6 +59,23 @@ module.exports = function (config) {
                 var o = res.data[i];
                 b_result.push ({ name: o.name, id: o.id });
             }
+            var raj=[];
+
+            raj = toArray(res.data);
+
+            function toArray(obj) {
+                var result = [];
+                for (var prop in obj) {
+                    var value = obj[prop];
+                    if (typeof value === 'object') {
+                        result.push(toArray(value)); // <- recursive call
+                    }
+                    else {
+                        result.push(value);
+                    }
+                }
+                return result;
+            }
 
             var arr = Object.keys(res.data).map(function(k) { return res.data[k];});
 
@@ -66,6 +83,7 @@ module.exports = function (config) {
             console.log('Facebook.bigresult:' + big);
             console.log('Friend.b_result:' + b_result);
             console.log('Friends.arr:' + arr);
+            console.log('Friends.arr:raj:' + raj);
 
         });
 
