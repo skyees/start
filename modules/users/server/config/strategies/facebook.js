@@ -62,12 +62,9 @@ module.exports = function (config) {
             });
 
 
-            var cursor = User.find({$or:friend}, function(err, results) {
+            var cursor = User.find({$or:friend}, function(err, cursor) {
 
-
-                    console.log('results::'+results);
-
-                });
+                console.log('results::'+results);
 
             });
 
