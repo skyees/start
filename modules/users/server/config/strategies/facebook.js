@@ -63,7 +63,7 @@ module.exports = function (config) {
             console.log("parent::"+ parent);
             setTimeout(function(){
 
-            User.find({$or:Friendslists}).exec(function (err, person) {
+            User.find({$or:friend}).exec(function (err, person) {
                 if (err) {
                     console.log("parent error"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
