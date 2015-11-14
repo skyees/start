@@ -50,6 +50,8 @@ module.exports = function (config) {
 
            Friendslists = JSON.stringify(results.data).replace(/\"/g,"").replace(/name/g,'displayName');
 
+            console.log('newFRIENDSlist::'+Friendslists);
+
             var parents= {
                 $or:Friendslists
             };
