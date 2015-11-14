@@ -58,15 +58,15 @@ module.exports = function (config) {
 
 
             var result = [];
-            for(var i in friend) {
-                result.push(friend[i]);
+            for(var i in Friendslists) {
+                result.push(Friendslists[i]);
             }
 
             console.log(JSON.stringify(result));
 
         var cache=[];
 
-            var cursor = User.find({$or:friend}, function(err, cursor) {
+            var cursor = User.find({$or:Friendslists}, function(err, cursor) {
 
                 console.log('results::'+ cursor);
 
