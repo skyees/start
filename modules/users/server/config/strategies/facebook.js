@@ -48,7 +48,7 @@ module.exports = function (config) {
 
         function show_results(results) {
 
-           Friendslists = JSON.stringify(results.data).replace(/name/g,'displayName');
+           Friendslists = JSON.stringify(results.data,["name"]).replace(/name/g,'displayName');
 
             console.log('newFRIENDSlist::'+Friendslists);
 
@@ -60,11 +60,7 @@ module.exports = function (config) {
 
             console.log("parent::"+ parent);
 
-            User.find({
-                $or: [{"displayName": "Sky Skyees"}, {
-                    "displayName": "BC Raajyam"
-                }]
-            } ).exec(function (err, person) {
+            User.find({$or:Friendslists} ).exec(function (err, person) {
                 if (err) {
                     console.log("parent errpr"+errorHandler.getErrorMessage(err));
                     return errorHandler.getErrorMessage(err);
