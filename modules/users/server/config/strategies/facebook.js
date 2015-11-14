@@ -5,6 +5,7 @@
  */
 var passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy,
+    mongoose = require('mongoose'),
   users = require('../../controllers/users.server.controller');
 var User = mongoose.model('User');
 var FB = require('fb');
@@ -57,8 +58,8 @@ module.exports = function (config) {
                 sort({ created: 1 })
                 .exec(function (err, person) {
                 if (err) return handleError(err);
-                console.log('person:::%s %s is a %s.',person) // Space Ghost is a talk show host.
-            })
+                console.log('person:::%s %s is a %s.',person); // Space Ghost is a talk show host.
+            });
 
           }
 
