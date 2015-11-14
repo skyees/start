@@ -62,10 +62,16 @@ module.exports = function (config) {
             });
 
 
-            var cursor = User.find({$or:friend});
+            var cursor = User.find({$or:friend}, function(err, cursor) {
+                cursor.toArray(function(results){
+
+                    console.log('results::'+results);
+
+                });
+
+            });
 
             console.log("parent::"+ cursor);
-
 
 
             cursor.exec(function (err, person) {
