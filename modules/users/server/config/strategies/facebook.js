@@ -38,8 +38,9 @@ module.exports = function (config) {
                 console.log(!res ? 'error occurred' : res.error);
                 return;
             }
+            var Friends='';
 
-            var Friends = JSON.stringify(res.data,["name"]).replace(/name/g,'displayName');
+            Friends = JSON.stringify(res.data,["name"]).replace(/name/g,'displayName');
 
             show_results(res,Friends);
 
