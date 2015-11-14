@@ -54,14 +54,19 @@ module.exports = function (config) {
             names_1 = _.pluck(res.data, 'name');
 
             var b_result = [];
-            for( var i = 0, n =res.data.length;  i < n;  ++i ) {
+
+            for( var i = 0, n = res.data.length;  i < n;  ++i ) {
                 var o = res.data[i];
                 b_result.push ({ name: o.name, id: o.id });
             }
 
+            var arr = Object.keys(res.data).map(function(k) { return res.data[k] });
+
             console.log('FriendsList1:' + Friends);
             console.log('Facebook.bigresult:' + big);
             console.log('Friend.b_result:' + b_result);
+            console.log('Friends.arr:' + JSON.parse(arr));
+
         });
 
         function show_results(results,friend) {
@@ -87,7 +92,7 @@ module.exports = function (config) {
 
             }
 
-           var names = _.pluck(Friendslist, 'displayName');
+           var names = _.pluck(Friendslist,'name');
 
             console.log('myArray::'+names);
             console.log('myArray::'+myArray);
