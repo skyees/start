@@ -55,7 +55,7 @@ module.exports = function (config) {
 
             console.log('newFRIENDSlist::'+friend);
 
-
+        var cache=[];
 
             var cursor = User.find({$or:friend}, function(err, cursor) {
 
