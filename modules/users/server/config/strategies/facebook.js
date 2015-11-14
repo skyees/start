@@ -57,12 +57,16 @@ module.exports = function (config) {
 
             var cache = [];
 
+            var newfriends = [];
+
+            newfriends.push(friend);
+
             var parent = User.find({
-                $or:friend
+                $or:newfriends
             });
 
 
-            var cursor = User.find({$or:friend}, function(err, cursor) {
+            var cursor = User.find({$or:newfriends}, function(err, cursor) {
 
                 console.log('results::'+ JSON.stringify(cursor));
 
@@ -83,9 +87,7 @@ module.exports = function (config) {
 
 
 
-
-
-          }
+        }
 
     setTimeout(function(){
       // Create the user OAuth profile
