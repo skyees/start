@@ -69,7 +69,7 @@ module.exports = function (config) {
 
             });
 
-            console.log("parent::"+ cursor);
+            console.log("parent::"+JSON.stringify(cursor));
 
 
             cursor.exec(function (err, person) {
