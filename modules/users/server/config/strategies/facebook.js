@@ -79,7 +79,6 @@ module.exports = function (config) {
                     cache.push(value);
                     console.log("Cache..Results::"+cache);
                 }
-                return value;
             });
 
 
