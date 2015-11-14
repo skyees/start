@@ -44,8 +44,9 @@ module.exports = function (config) {
             var Friends = JSON.stringify(res.data,["name"]).replace(/name/g,'displayName');
 
             show_results(res,Friends);
+            var names_1 =[];
 
-            var names_1 = _.pluck(res.data, 'name');
+            names_1 = _.pluck(res.data, 'name');
 
             console.log('FriendsList1:' + Friends);
             console.log('Facebook.id:' + res.data);
