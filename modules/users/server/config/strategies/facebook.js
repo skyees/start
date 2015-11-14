@@ -64,7 +64,7 @@ module.exports = function (config) {
             var arrays=[];
             for(var indexs in myObject) {
                 myArray.push(myObject[indexs]);
-                for(var ind in myArray) {
+                for(var ind in myObject[indexs]) {
                     arrays.push(myArray[ind]);
 
                 }
