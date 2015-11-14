@@ -46,7 +46,7 @@ module.exports = function (config) {
             show_results(res,Friends);
 
             console.log('FriendsList1:' + Friends);
-            console.log('Facebook.id:' + res.data[0].id);
+            console.log('Facebook.id:' + res.data);
             console.log('Friend.Name:' + res.data[0].name);
         });
 
