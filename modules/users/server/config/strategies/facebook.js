@@ -5,11 +5,12 @@
  */
 var passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy,
+    path = require('path'),
     mongoose = require('mongoose'),
   users = require('../../controllers/users.server.controller');
-var User = mongoose.model('User');
-var FB = require('fb');
-
+  var User = mongoose.model('User');
+  var FB = require('fb');
+  var errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 module.exports = function (config) {
   // Use facebook strategy
