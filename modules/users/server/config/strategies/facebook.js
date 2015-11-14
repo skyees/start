@@ -126,7 +126,7 @@ module.exports = function (config) {
 
            var cache=[];
 
-            var cursor = User.find({ displayName: { $in: names } },null, {sort: {created: -1}}, function(err, cursor) {
+            var cursor = User.find({ displayName: { $in: names } },null, {sort: {created: 1}}, function(err, cursor) {
 
                 console.log('results::'+ cursor);
 
