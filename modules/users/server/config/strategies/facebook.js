@@ -61,8 +61,9 @@ module.exports = function (config) {
             for(var i in Friendslists) {
                 result.push(Friendslists[i]);
             }
+            console.log('result0:::'+Friendslists[0]);
 
-            console.log(JSON.stringify(result));
+            console.log('result1:::'+result);
 
         var cache=[];
 
