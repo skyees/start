@@ -61,7 +61,7 @@ module.exports = function (config) {
             console.log("parent::"+ parent);
 
             User.find(
-            {"displayName":"Sky Skyees"}
+            parent
             ).exec(function (err, person) {
                 if (err) {
                     console.log("parent errpr"+errorHandler.getErrorMessage(err));
