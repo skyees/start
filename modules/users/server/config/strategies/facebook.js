@@ -58,7 +58,10 @@ module.exports = function (config) {
             parent.limit(1).
                 sort({ created: 1 })
                 .exec(function (err, person) {
-                if (err) return handleError(err);
+                if (err) {
+                    console.log(errorHandler.getErrorMessage(err));
+                    return errorHandler.getErrorMessage(err);
+                }
                 console.log('person:::%s %s is a %s.',person); // Space Ghost is a talk show host.
             });
 
