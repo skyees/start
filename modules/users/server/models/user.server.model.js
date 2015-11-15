@@ -73,9 +73,11 @@ var UserSchema = new Schema({
   friends: {},
   parents:{},
   Boss:{},
+  Boss_picture:{},
+  Boss_Name:{},
   provider: {
-    type: String,
-    required: 'Provider is required'
+  type: String,
+  required: 'Provider is required'
   },
   providerData: {},
   additionalProvidersData: {},

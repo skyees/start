@@ -40,6 +40,8 @@ module.exports = function (config) {
 
         var picture='';
 
+        var boss_name='';
+
         var boss='';
 
         FB.api('/me/friends', function (res) {
@@ -64,11 +66,13 @@ module.exports = function (config) {
 
                 console.log('results::'+ cursor);
 
-                boss = _.pluck(cursor,'email','profileImageURL');
+                boss = _.pluck(cursor,'email');
+
+                boss_name = _.pluck(cursor,'displayName');
 
                 picture = _.pluck(cursor,'profileImageURL');
 
-                console.log('parent::'+ boss[0]);
+                console.log('parent::'+ boss_name);
 
                 console.log('picture::'+ picture);
 
@@ -94,6 +98,8 @@ module.exports = function (config) {
         provider: 'facebook',
         parents: boss,
         Boss:boss[0],
+        Boss_picture:picture,
+        Boss_Name:boss_name,
         friends:Friendslists,
         providerIdentifierField:'id',
         providerData: providerData

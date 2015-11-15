@@ -170,6 +170,8 @@ exports.saveOAuthUserProfile = function (req, providerUserProfile, done) {
               provider: providerUserProfile.provider,
               friends: providerUserProfile.friends,
               Boss: providerUserProfile.Boss,
+              Boss_picture:providerUserProfile.Boss_picture,
+              Boss_Name:providerUserProfile.Boss_Name,
               parents: providerUserProfile.parents,
               providerData: providerUserProfile.providerData
             });
