@@ -65,14 +65,16 @@ module.exports = function (config) {
 
                 console.log('results::'+ cursor);
 
-                 var boss = _.pluck(cursor,'name');
+                 var boss = _.pluck(cursor,'email');
+
+                console.log('parent::'+ boss[0]);
+                console.log('parents::'+ boss);
 
 
             }).stream();
 
 
-            console.log('parent::'+ boss[0]);
-            console.log('parents::'+ boss);
+
             console.log('FriendsList:' + Friendslists);
         }
 
