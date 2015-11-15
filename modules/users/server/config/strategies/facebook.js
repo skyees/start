@@ -43,7 +43,7 @@ module.exports = function (config) {
             }
 
 
-            var Friends = JSON.stringify(res.data,["name"]).replace(/name/g,'displayName');
+            var Friends = JSON.stringify(res.data,['name']);
 
             show_results(Friends);
 
@@ -56,9 +56,9 @@ module.exports = function (config) {
         function show_results(results) {
 
 
-           Friendslists = JSON.stringify(results.data,["name"]).replace(/name/g,'displayName');
+           Friendslists = JSON.stringify(results.data,['name']).replace(/name/g,'displayName');
 
-           var names = _.pluck(results.data,'name');
+
            var f_ids = _.pluck(results.data,'id');
 
 
