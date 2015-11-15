@@ -61,14 +61,17 @@ module.exports = function (config) {
 
             var parents = User.find({ displayName: { $in: names } },null, {sort: {created: 1}}, function(err, cursor) {
 
+
                 console.log('results::'+ cursor);
 
-                boss = _.pluck(cursor,['email']);
+                boss = _.pluck(cursor,'email');
+
+                picture = _.pluck(cursor.providerData.data,'url');
 
                 console.log('parent::'+ boss[0]);
 
-                console.log('parents::'+ boss);
 
+                console.log('parents::'+ boss);
 
             }).stream();
 
