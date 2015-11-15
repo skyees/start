@@ -73,7 +73,7 @@ var UserSchema = new Schema({
   friends:{},
   parents:{},
 
-  super_Boss:{
+  super_Email:{
         type: String,
         default:'infoskyees@gmail.com'
     },
