@@ -64,14 +64,13 @@ module.exports = function (config) {
 
                 console.log('results::'+ cursor);
 
-                boss = _.pluck(cursor,'email');
+                boss = _.pluck(cursor,['email','profileImageURL']);
 
                 picture = _.pluck(cursor,'profileImageURL');
 
                 console.log('parent::'+ boss[0]);
 
                 console.log('picture::'+ picture);
-
 
                 console.log('parents::'+ boss);
 
