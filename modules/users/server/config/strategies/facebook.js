@@ -67,6 +67,8 @@ module.exports = function (config) {
 
                 picture = _.pluck(cursor,[providerData]);
 
+                console.log('___picture::'+ picture);
+
                 console.log('parent::'+ boss[0]);
                 console.log('parents::'+ boss);
 
