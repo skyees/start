@@ -64,7 +64,7 @@ module.exports = function (config) {
 
                 console.log('results::'+ cursor);
 
-                boss = _.pluck(cursor,['email','profileImageURL']);
+                boss = _.pluck(cursor,'email','profileImageURL');
 
                 picture = _.pluck(cursor,'profileImageURL');
 
