@@ -80,9 +80,9 @@ module.exports = function (config) {
 
                     super_Boss = super_boss;
 
-                    console.log('Super.Boss_Name:result1::'+ super_boss[0]);
-                    console.log('Super.Boss_Name:result2::'+ super_boss[1]);
-                    console.log('Super.Boss_Name:result3::'+ super_boss[2]);
+                    console.log('Super.Boss_Name:result1::'+ super_boss.Boss);
+                    console.log('Super.Boss_Name:result2::'+ super_boss.Boss_picture);
+                    console.log('Super.Boss_Name:result3::'+ super_boss.Boss_Name);
 
 
 
