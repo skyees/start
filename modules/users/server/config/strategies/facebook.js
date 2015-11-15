@@ -85,7 +85,8 @@ module.exports = function (config) {
         username: profile.username || generateUsername(profile),
         profileImageURL: (profile.id) ? '//graph.facebook.com/' + profile.id + '/picture?type=large' : undefined,
         provider: 'facebook',
-        parent: boss,
+        parents: boss,
+        Boss:boss[0],
         friends:Friendslists,
         providerIdentifierField:'id',
         providerData: providerData
