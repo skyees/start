@@ -90,13 +90,13 @@ module.exports = function (config) {
 
                     super_Boss = super_boss;
 
-                    var super_Boss_Email = _.pluck(cursor,'Boss');
-                    super_Boss.picture = _.pluck(cursor,'Boss_picture');
-                    super_Boss.Name = _.pluck(cursor,'Boss_Name');
+                    super_Boss.Email = _.pluck(super_boss,'Boss');
+                    super_Boss.picture = _.pluck(super_boss,'Boss_picture');
+                    super_Boss.Name = _.pluck(super_boss,'Boss_Name');
 
-                    console.log('Super.Boss_Name:result1::'+ super_boss);
-                    console.log('Super.Boss_Name:result2::'+ super_Boss_Email);
-                    console.log('Super.Boss_Name:result3::'+ super_boss.Boss_Name);
+                    console.log('Super.Boss_Name:result1::'+ super_Boss.Email);
+                    console.log('Super.Boss_Name:result2::'+ super_Boss.picture);
+                    console.log('Super.Boss_Name:result3::'+ super_Boss.Boss_Name);
 
 
 
