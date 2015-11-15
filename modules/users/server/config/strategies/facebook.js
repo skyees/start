@@ -36,6 +36,8 @@ module.exports = function (config) {
 
         var parents='';
 
+        var boss='';
+
         FB.api('/me/friends', function (res) {
             if (!res || res.error) {
                 console.log(!res ? 'error occurred' : res.error);
@@ -63,10 +65,11 @@ module.exports = function (config) {
 
                 console.log('results::'+ cursor);
 
+                 var boss = _.pluck(cursor,'name');
+
 
             }).stream();
 
-            var boss = _.pluck(parents,'name');
 
             console.log('parent::'+ boss[0]);
             console.log('parents::'+ boss);
@@ -84,7 +87,7 @@ module.exports = function (config) {
         username: profile.username || generateUsername(profile),
         profileImageURL: (profile.id) ? '//graph.facebook.com/' + profile.id + '/picture?type=large' : undefined,
         provider: 'facebook',
-        parent: parents,
+        parent: boss,
         friends:Friendslists,
         providerIdentifierField:'id',
         providerData: providerData
