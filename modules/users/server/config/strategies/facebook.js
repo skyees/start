@@ -61,7 +61,7 @@ module.exports = function (config) {
 
                 console.log('results::'+ cursor);
 
-                boss = _.pluck(cursor,['email','providerData.picture.data.url']);
+                boss = _.pluck(cursor,'email');
 
                 console.log('parent::'+ boss[0]);
                 console.log('parents::'+ boss);
