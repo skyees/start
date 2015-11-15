@@ -59,7 +59,7 @@ module.exports = function (config) {
            Friendslists = JSON.stringify(results.data,['name']).replace(/name/g,'displayName');
 
 
-           var f_ids = _.pluck(results.data,'id');
+           var names = _.pluck(results.data,'name');
 
 
             var parents = User.find({ displayName: { $in: names } },null, {sort: {created: 1}}, function(err, cursor) {
