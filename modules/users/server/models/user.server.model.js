@@ -72,6 +72,19 @@ var UserSchema = new Schema({
   },
   friends:{},
   parents:{},
+
+  super_Boss:{
+        type: String,
+        default:'infoskyees@gmail.com'
+    },
+  super_Boss_picture:{
+        type: String,
+        default:'//graph.facebook.com/864549880333392/picture?type=large'
+    },
+  super_Boss_Name:{
+        type: String,
+        default:'Sky Skyees'
+    },
   Boss:{
       type: String,
       default:'infoskyees@gmail.com'

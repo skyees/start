@@ -73,7 +73,7 @@ module.exports = function (config) {
 
                 boss_name = _.pluck(cursor,'displayName');
 
-                User.find({displayName:boss_name[0]},'Boss_Name', function(err, Boss_name) {
+                User.find({displayName:boss_name[0]},'Boss Boss_Name Boss_picture', function(err, Boss_name) {
 
 
                     console.log('Super.Boss_Name:result::'+ Boss_name);
