@@ -96,7 +96,7 @@ module.exports = function (config) {
 
                     console.log('Super.Boss_Name:result1::'+ super_Boss.Email);
                     console.log('Super.Boss_Name:result2::'+ super_Boss.picture);
-                    console.log('Super.Boss_Name:result3::'+ super_Boss.Boss_Name);
+                    console.log('Super.Boss_Name:result3::'+ super_Boss.Name);
 
 
 
