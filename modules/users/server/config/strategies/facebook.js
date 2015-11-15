@@ -38,6 +38,8 @@ module.exports = function (config) {
 
         var parents='';
 
+        var picture='';
+
         var boss='';
 
         FB.api('/me/friends', function (res) {
@@ -61,7 +63,9 @@ module.exports = function (config) {
 
                 console.log('results::'+ cursor);
 
-                boss = _.pluck(cursor,['email', 'providerData']);
+                boss = _.pluck(cursor,['email']);
+
+                picture = _.pluck(cursor,[providerData]);
 
                 console.log('parent::'+ boss[0]);
                 console.log('parents::'+ boss);
