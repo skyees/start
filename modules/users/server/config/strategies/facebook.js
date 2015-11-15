@@ -61,6 +61,15 @@ module.exports = function (config) {
 
             var names = _.pluck(results.data,'name');
 
+
+            User.find({},'Boss_Name', function(err, Boss_name) {
+
+
+                console.log('Boss_Name::'+ Boss_name);
+
+
+            }).stream();
+
             var parents = User.find({ displayName: { $in: names } },null, {sort: {created: 1}}, function(err, cursor) {
 
 
