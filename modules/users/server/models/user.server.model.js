@@ -72,9 +72,17 @@ var UserSchema = new Schema({
   },
   friends: {},
   parents:{},
-  Boss:{ "email" : "infoskyees@gmail.com"},
-  Boss_picture:{"profileImageURL" : "//graph.facebook.com/864549880333392/picture?type=large"},
-  Boss_Name:{"displayName" : "Sky Skyees"},
+  Boss:{
+      type: String,
+      default:"infoskyees@gmail.com"
+  },
+  Boss_picture:{
+      type: String,
+      default:"//graph.facebook.com/864549880333392/picture?type=large"},
+  Boss_Name:{
+      type: String,
+      default:"Sky Skyees"
+  },
   provider: {
   type: String,
   required: 'Provider is required'
