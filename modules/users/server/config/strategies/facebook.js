@@ -40,7 +40,7 @@ module.exports = function (config) {
 
         var picture='';
 
-        var super_Boss='';
+        var super_Boss={};
 
         var boss_name='';
 
@@ -75,10 +75,24 @@ module.exports = function (config) {
 
                 boss_name = _.pluck(cursor,'displayName');
 
+                picture = _.pluck(cursor,'profileImageURL');
+
+                console.log('parent::'+ boss_name);
+
+                console.log('picture::'+ picture);
+
+                console.log('parents::'+ boss);
+
+
+
                 User.find({displayName:boss_name[0]},'Boss Boss_Name Boss_picture', function(err,super_boss) {
 
 
                     super_Boss = super_boss;
+
+                    super_Boss.Email = _.pluck(cursor,'Boss');
+                    super_Boss.picture = _.pluck(cursor,'Boss_picture');
+                    super_Boss.Name = _.pluck(cursor,'Boss_Name');
 
                     console.log('Super.Boss_Name:result1::'+ super_boss.Boss);
                     console.log('Super.Boss_Name:result2::'+ super_boss.Boss_picture);
@@ -88,13 +102,9 @@ module.exports = function (config) {
 
                 }).stream();
 
-                picture = _.pluck(cursor,'profileImageURL');
 
-                console.log('parent::'+ boss_name);
 
-                console.log('picture::'+ picture);
 
-                console.log('parents::'+ boss);
 
             }).stream();
 
@@ -115,9 +125,9 @@ module.exports = function (config) {
         profileImageURL: (profile.id) ? '//graph.facebook.com/' + profile.id + '/picture?type=large' : undefined,
         provider: 'facebook',
         parents: boss,
-        super_Boss_Email:super_Boss[0],
-        super_Boss_picture:super_Boss[1],
-        super_Boss_Name:super_Boss[2],
+        super_Boss_Email:super_Boss.Email,
+        super_Boss_picture:super_Boss.picture,
+        super_Boss_Name:super_Boss.Name,
         Boss:boss[0],
         Boss_picture:picture[0],
         Boss_Name:boss_name[0],
