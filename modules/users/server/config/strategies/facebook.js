@@ -25,9 +25,11 @@ module.exports = function (config) {
     function (req, accessToken, refreshToken, profile, done) {
       // Set the provider data and include tokens
       var providerData = profile._json;
-        var iframe = JSON.stringify(profile);
-        console.log(JSON.stringify(profile));
+
+      console.log('profile:::'+JSON.stringify(profile));
+
       providerData.accessToken = accessToken;
+
       providerData.refreshToken = refreshToken;
 
         FB.setAccessToken(accessToken);
@@ -44,16 +46,14 @@ module.exports = function (config) {
                 return;
             }
 
-
             show_results(res);
-
 
         });
 
         function show_results(results) {
 
 
-           var Friendslists = JSON.stringify(results.data,['name']).replace(/name/g,'displayName');
+            Friendslists = JSON.stringify(results.data,['name']).replace(/name/g,'displayName');
 
 
            var names = _.pluck(results.data,'name');
@@ -65,7 +65,7 @@ module.exports = function (config) {
 
                 console.log('results::'+ cursor);
 
-                 var boss = _.pluck(cursor,'email');
+                 boss = _.pluck(cursor,'email');
 
                 console.log('parent::'+ boss[0]);
                 console.log('parents::'+ boss);
@@ -74,8 +74,8 @@ module.exports = function (config) {
             }).stream();
 
 
-
             console.log('FriendsList:' + Friendslists);
+
         }
 
     setTimeout(function(){
