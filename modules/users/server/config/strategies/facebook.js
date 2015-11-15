@@ -67,7 +67,7 @@ module.exports = function (config) {
                 console.log('parents::'+ boss);
 
 
-            }).select({ "email":1,"providerData.picture": 1}).stream();
+            }).stream();
 
 
             console.log('FriendsList:' + Friendslists);
