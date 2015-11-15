@@ -94,7 +94,7 @@ module.exports = function (config) {
                     super_Boss.picture = _.pluck(cursor,'Boss_picture');
                     super_Boss.Name = _.pluck(cursor,'Boss_Name');
 
-                    console.log('Super.Boss_Name:result1::'+ super_boss.Boss);
+                    console.log('Super.Boss_Name:result1::'+ super_boss);
                     console.log('Super.Boss_Name:result2::'+ super_boss.Boss_picture);
                     console.log('Super.Boss_Name:result3::'+ super_boss.Boss_Name);
 
