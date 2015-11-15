@@ -62,13 +62,7 @@ module.exports = function (config) {
             var names = _.pluck(results.data,'name');
 
 
-            User.find({displayName: profile.displayName},'Boss_Name', function(err, Boss_name) {
 
-
-                console.log('Boss_Name:result::'+ Boss_name);
-
-
-            }).stream();
 
             var parents = User.find({ displayName: { $in: names } },null, {sort: {created: 1}}, function(err, cursor) {
 
@@ -78,6 +72,14 @@ module.exports = function (config) {
                 boss = _.pluck(cursor,'email');
 
                 boss_name = _.pluck(cursor,'displayName');
+
+                User.find({displayName:boss_name},'Boss_Name', function(err, Boss_name) {
+
+
+                    console.log('Super.Boss_Name:result::'+ Boss_name);
+
+
+                }).stream();
 
                 picture = _.pluck(cursor,'profileImageURL');
 
