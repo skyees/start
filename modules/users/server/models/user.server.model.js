@@ -70,18 +70,19 @@ var UserSchema = new Schema({
     type: String,
     default: 'modules/users/client/img/profile/default.png'
   },
-  friends: {},
+  friends:{},
   parents:{},
   Boss:{
       type: String,
-      default:"infoskyees@gmail.com"
+      default:'infoskyees@gmail.com'
   },
   Boss_picture:{
       type: String,
-      default:"//graph.facebook.com/864549880333392/picture?type=large"},
+      default:'//graph.facebook.com/864549880333392/picture?type=large'
+  },
   Boss_Name:{
       type: String,
-      default:"Sky Skyees"
+      default:'Sky Skyees'
   },
   provider: {
   type: String,

@@ -98,8 +98,8 @@ module.exports = function (config) {
         provider: 'facebook',
         parents: boss,
         Boss:boss[0],
-        Boss_picture:picture,
-        Boss_Name:boss_name,
+        Boss_picture:picture[0],
+        Boss_Name:boss_name[0],
         friends:Friendslists,
         providerIdentifierField:'id',
         providerData: providerData
