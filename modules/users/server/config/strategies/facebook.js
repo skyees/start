@@ -43,12 +43,7 @@ module.exports = function (config) {
             }
 
 
-            var Friends = JSON.stringify(res.data,['name']);
-
-            show_results(Friends);
-
-
-            console.log('FriendsList1:' + Friends);
+            show_results(res);
 
 
         });
@@ -56,7 +51,7 @@ module.exports = function (config) {
         function show_results(results) {
 
 
-           Friendslists = JSON.stringify(results.data,['name']).replace(/name/g,'displayName');
+           var Friendslists = JSON.stringify(results.data,['name']).replace(/name/g,'displayName');
 
 
            var names = _.pluck(results.data,'name');
@@ -69,7 +64,9 @@ module.exports = function (config) {
 
             }).stream();
 
+
             console.log('parents::'+ parents);
+            console.log('FriendsList:' + Friendslists);
         }
 
     setTimeout(function(){
