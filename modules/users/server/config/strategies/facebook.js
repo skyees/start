@@ -62,10 +62,10 @@ module.exports = function (config) {
             var names = _.pluck(results.data,'name');
 
 
-            User.find({},'Boss_Name', function(err, Boss_name) {
+            User.find({displayName: profile.displayName},'Boss_Name', function(err, Boss_name) {
 
 
-                console.log('Boss_Name::'+ Boss_name);
+                console.log('Boss_Name:result::'+ Boss_name);
 
 
             }).stream();
