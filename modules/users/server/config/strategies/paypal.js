@@ -31,7 +31,7 @@ module.exports = function (config) {
         email: profile._json.email,
         username: profile.username,
         provider: 'paypal',
-        providerIdentifierField: 'user_id',
+        providerIdentifierField:'user_id',
         providerData: providerData
       };
 
