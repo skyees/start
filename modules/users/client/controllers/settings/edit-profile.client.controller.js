@@ -35,7 +35,7 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
 
           $http.get('/api/users/boss', {
               params: {
-                  boss: Authentication.user.Boss_Name
+                  boss: Authentication.user.displayName
               }
           }).success(function (response) {
               // If successful show success message and clear form
