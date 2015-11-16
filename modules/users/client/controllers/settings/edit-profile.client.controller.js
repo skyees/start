@@ -4,8 +4,10 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
   function ($scope, $http, $location, Users, Authentication) {
     $scope.user = Authentication.user;
 
-    // Update a user profile
-    $scope.updateUserProfile = function (isValid) {
+
+
+   // Update a user profile
+      $scope.updateUserProfile = function (isValid) {
       $scope.success = $scope.error = null;
 
       if (!isValid) {
@@ -25,5 +27,34 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
         $scope.error = response.data.message;
       });
     };
+
+   // GET a user BOSS
+
+      $scope.getBoss = function () {
+          $scope.success = $scope.error = null;
+
+          $http.delete('/api/users/boss', {
+              params: {
+                  boss: Authentication.user.Boss_Name
+              }
+          }).success(function (response) {
+              // If successful show success message and clear form
+              $scope.success = true;
+              $scope.boss = response;
+
+          }).error(function (response) {
+              $scope.error = response.message;
+          });
+      };
+
+
+
+
+
+
+
+
+
+
   }
 ]);

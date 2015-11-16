@@ -254,3 +254,19 @@ exports.removeOAuthProvider = function (req, res, next) {
     }
   });
 };
+
+
+exports.boss = function (req, res) {
+    var boss = req.query.boss;
+
+    User.find({displayName:boss}).exec(function (err, users) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        }
+
+        res.json(users);
+    });
+
+};
