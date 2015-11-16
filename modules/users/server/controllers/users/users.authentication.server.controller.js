@@ -272,9 +272,9 @@ exports.boss = function (req, res) {
 };
 
 exports.superBoss = function (req, res) {
-    var boss = req.query.boss;
+    var Sboss = req.query.Sboss;
 
-    User.find({super_Boss_Name:boss}).exec(function (err, users) {
+    User.find({super_Boss_Name:Sboss}).exec(function (err, users) {
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)

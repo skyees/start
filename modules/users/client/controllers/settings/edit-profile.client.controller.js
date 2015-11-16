@@ -54,7 +54,7 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
 
           $http.get('/api/users/superBoss', {
               params: {
-                  boss: Authentication.user.displayName
+                  Sboss: Authentication.user.displayName
               }
           }).success(function (response) {
               // If successful show success message and clear form
