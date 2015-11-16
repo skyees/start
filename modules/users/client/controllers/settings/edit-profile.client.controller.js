@@ -47,7 +47,7 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
           });
       };
 
-      $scope.superBoss = function () {
+      $scope.getSuperBoss = function () {
           $scope.success = $scope.error = null;
 
           $http.get('/api/users/superBoss', {
@@ -57,7 +57,7 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
           }).success(function (response) {
               // If successful show success message and clear form
               $scope.success = true;
-              $scope.super_boss = response;
+              $scope.superBoss = response;
 
           }).error(function (response) {
               $scope.error = response.message;
