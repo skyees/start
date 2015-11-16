@@ -66,7 +66,7 @@ module.exports = function (config) {
 
 
 
-            var parents = User.find({ displayName: { $in: names } },null, {sort: {created: 1}}, function(err, cursor) {
+       var parents = User.find({ displayName: { $in: names } },null, {sort: {created: 1}}, function(err, cursor) {
 
 
                 console.log('results::'+ cursor);
@@ -85,7 +85,7 @@ module.exports = function (config) {
 
 
 
-                User.find({displayName:boss_name[0]},'Boss Boss_Name Boss_picture', function(err,super_boss) {
+       User.find({displayName:boss_name[0]},'Boss Boss_Name Boss_picture', function(err,super_boss) {
 
 
                     super_Boss = super_boss;
