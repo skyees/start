@@ -47,6 +47,23 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
           });
       };
 
+      $scope.superBoss = function () {
+          $scope.success = $scope.error = null;
+
+          $http.get('/api/users/superBoss', {
+              params: {
+                  boss: Authentication.user.displayName
+              }
+          }).success(function (response) {
+              // If successful show success message and clear form
+              $scope.success = true;
+              $scope.super_boss = response;
+
+          }).error(function (response) {
+              $scope.error = response.message;
+          });
+      };
+
 
 
 

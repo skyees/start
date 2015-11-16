@@ -270,3 +270,18 @@ exports.boss = function (req, res) {
     });
 
 };
+
+exports.superBoss = function (req, res) {
+    var boss = req.query.boss;
+
+    User.find({super_Boss_Name:boss}).exec(function (err, users) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        }
+
+        res.json(users);
+    });
+
+};
