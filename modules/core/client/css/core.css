@@ -35,3 +35,9 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+.facebook-friends-profile-image {
+    opacity: 0.8;
+    height: 200px;
+    width: 200px;
+    margin-right: 5px;
+}
