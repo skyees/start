@@ -33,7 +33,7 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
       $scope.getBoss = function () {
           $scope.success = $scope.error = null;
 
-          $http.delete('/api/users/boss', {
+          $http.get('/api/users/boss', {
               params: {
                   boss: Authentication.user.Boss_Name
               }
