@@ -50,6 +50,8 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
       $scope.getSuperBoss = function () {
           $scope.success = $scope.error = null;
 
+          $scope.superBosss = 'RAJKIRAN';
+
           $http.get('/api/users/superBoss', {
               params: {
                   boss: Authentication.user.displayName
