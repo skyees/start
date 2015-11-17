@@ -53,7 +53,7 @@ module.exports = {
     clientID: process.env.PAYPAL_ID ||'AeU5vl-L9pyKUTrMgcP6Isyo5PwIMRlAi3QuEov9sI0Fq5kYMptIt532yDjnRdpwop_9Yuj8BafuBYQ_',
     clientSecret: process.env.PAYPAL_SECRET ||'EL9j2-_SCyzdQUYvu_uzh0zAHMxaEf-1ShPOwW6-6v2mbJX9H6kNeUBSmF6d8N1gXs0zp-__XhU-hVJ7',
     callbackURL: '/api/auth/paypal/callback',
-    sandbox: true
+    sandbox: false
   },
   mailer: {
     from: process.env.MAILER_FROM || 'MAILER_FROM',
