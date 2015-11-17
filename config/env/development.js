@@ -50,8 +50,8 @@ module.exports = {
     callbackURL: '/api/auth/github/callback'
   },
   paypal: {
-    clientID: process.env.PAYPAL_ID ||'ActmR3PG_wOA_79lamO_TiHyINcthljxOrPKvXR2Zzi6KXNuPY2bI6OLHHl2VJ1MiZCppk_jzdrRFy0x',
-    clientSecret: process.env.PAYPAL_SECRET ||'EE12sp80LEWwfeY6e288352hZg9SPd09izAAQiTjq7-pjK-CySsPuBf-wa9GLmm-n2DwqGVsKxzw-Y_k',
+    clientID: process.env.PAYPAL_ID ||'AeU5vl-L9pyKUTrMgcP6Isyo5PwIMRlAi3QuEov9sI0Fq5kYMptIt532yDjnRdpwop_9Yuj8BafuBYQ_',
+    clientSecret: process.env.PAYPAL_SECRET ||'EL9j2-_SCyzdQUYvu_uzh0zAHMxaEf-1ShPOwW6-6v2mbJX9H6kNeUBSmF6d8N1gXs0zp-__XhU-hVJ7',
     callbackURL: '/api/auth/paypal/callback',
     sandbox: true
   },
