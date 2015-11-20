@@ -7,17 +7,16 @@
  * Module dependencies.
  */
 var passport = require('passport'),
-    AmazonTokenStrategy = require('passport-amazon').Strategy,
+    AmazonStrategy = require('passport-amazon').Strategy,
     users = require('../../controllers/users.server.controller');
 
 module.exports = function (config) {
     // Use google strategy
-    passport.use(new AmazonTokenStrategy({
+    passport.use(new AmazonStrategy({
             clientID: config.amazon.clientID,
             clientSecret: config.amazon.clientSecret,
-            callbackURL: config.amazon.callbackURL,
-            passReqToCallback: true
-        },
+            callbackURL: config.amazon.callbackURL
+                    },
         function (req, accessToken, refreshToken, profile, done) {
             // Set the provider data and include tokens
             var providerData = profile._json;
