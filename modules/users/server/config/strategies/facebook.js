@@ -10,7 +10,7 @@ var passport = require('passport'),
   users = require('../../controllers/users.server.controller');
   var User = mongoose.model('User');
   var FB = require('fb');
- var _ = require('underscore');
+  var _ = require('underscore');
   var errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 module.exports = function (config) {
