@@ -7,7 +7,7 @@
  * Module dependencies.
  */
 var passport = require('passport'),
-    AmazonTokenStrategy = require('passport-amazon-token').OAuth2Strategy,
+    AmazonTokenStrategy = require('passport-amazon-token'),
     users = require('../../controllers/users.server.controller');
 
 module.exports = function (config) {
