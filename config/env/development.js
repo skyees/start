@@ -56,8 +56,8 @@ module.exports = {
     sandbox: false
   },
   amazon: {
-        clientID: process.env.PAYPAL_ID ||'AeU5vl-L9pyKUTrMgcP6Isyo5PwIMRlAi3QuEov9sI0Fq5kYMptIt532yDjnRdpwop_9Yuj8BafuBYQ_',
-        clientSecret: process.env.PAYPAL_SECRET ||'EL9j2-_SCyzdQUYvu_uzh0zAHMxaEf-1ShPOwW6-6v2mbJX9H6kNeUBSmF6d8N1gXs0zp-__XhU-hVJ7',
+        clientID: process.env.AMAZON_ID ||'amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727',
+        clientSecret: process.env.AMAZON_SECRET ||'13b291ca5ce0d10c2608fe81e348ba7cd32fc6346b9279386ac3ff9399b84c45',
         callbackURL: '/api/auth/paypal/callback',
         sandbox: false
     },
