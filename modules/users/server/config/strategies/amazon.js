@@ -7,7 +7,7 @@
  * Module dependencies.
  */
 var passport = require('passport'),
-    AmazonTokenStrategy = require('passport-facebook').Strategy,
+    AmazonTokenStrategy = require('passport-amazon').Strategy,
     users = require('../../controllers/users.server.controller');
 
 module.exports = function (config) {
@@ -32,7 +32,7 @@ module.exports = function (config) {
                 email: profile.emails[0].value,
                 username: profile.username,
                 profileImageURL: (providerData.picture) ? providerData.picture : undefined,
-                provider: 'google',
+                provider: 'amazon',
                 providerIdentifierField: 'id',
                 providerData: providerData
             };
