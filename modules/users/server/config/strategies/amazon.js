@@ -7,7 +7,7 @@
  * Module dependencies.
  */
 var passport = require('passport'),
-    AmazonTokenStrategy = require('passport-amazon-token'),
+    AmazonTokenStrategy = require('passport-facebook').Strategy,
     users = require('../../controllers/users.server.controller');
 
 module.exports = function (config) {
