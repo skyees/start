@@ -56,5 +56,5 @@ module.exports = function (app) {
   app.route('/api/auth/paypal/callback').get(users.oauthCallback('paypal'));
 
   app.route('/api/auth/amazon/callback').get(users.oauthCallback('amazon'));
-  app.route('/api/auth/amazon').get(users.oauthCall('amazon',{ scope: ['profile'] }));
+  app.route('/api/auth/amazon').get(users.oauthCall('amazon'));
 };
