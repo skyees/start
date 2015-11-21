@@ -6,7 +6,7 @@ angular.module('core')
     .config(['$facebookProvider',
         function($facebookProvider)
         {
-            $facebookProvider.setAppId('312563625534623');
+            $facebookProvider.setAppId('1664525490499797');
             $facebookProvider.setPermissions('email,user_likes,friends');
             $facebookProvider.setCustomInit({
                 xfbml: true
