@@ -2,8 +2,20 @@
 
 angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator',
   function ($scope, $state, $http, $location, $window, Authentication, PasswordValidator) {
-    $scope.authentication = Authentication;
+
+      var forceSSL = function () {
+          if ($location.protocol() !== 'https') {
+              $window.location.href = $location.absUrl().replace('http', 'https');
+          }
+      };
+      forceSSL();
+
+
+      $scope.authentication = Authentication;
+
     $scope.popoverMsg = PasswordValidator.getPopoverMsg();
+
+
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
