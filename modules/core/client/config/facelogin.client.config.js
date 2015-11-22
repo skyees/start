@@ -17,7 +17,6 @@ angular.module('core')
 
         var s3 = null;
         var clientId = 'amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'; // client ID
-        var roleArn = 'arn:aws:iam::274437077325:role/<WEB_IDENTITY_ROLE_NAME>';
 
         window.onAmazonLoginReady = function() {
             amazon.Login.setClientId(clientId); // set client ID
@@ -25,14 +24,7 @@ angular.module('core')
             document.getElementById('login').onclick = function() {
                 amazon.Login.authorize({scope: 'profile'}, function(response) {
                     if (!response.error) { // logged in
-                        AWS.config.credentials = new AWS.WebIdentityCredentials({
-                            RoleArn: roleArn,
-                            ProviderId: 'www.amazon.com',
-                            WebIdentityToken: response.access_token
-                        });
-
-                        s3 = new AWS.S3();
-
+                          console.log(response);
                         console.log('You are now logged in.');
                     } else {
                         console.log('There was a problem logging you in.');
