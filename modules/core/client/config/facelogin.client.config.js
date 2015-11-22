@@ -29,7 +29,7 @@ angular.module('core')
 
                         amazon.Login.retrieveProfile(response.access_token, function(response) {
 
-                            alert(JSON.stringify(response.profile.Name));
+                            alert(JSON.stringify(response));
                             alert(response.profile.Name);
 
                              console.log('You are now logged in.');
