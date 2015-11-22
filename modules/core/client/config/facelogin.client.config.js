@@ -17,7 +17,7 @@ angular.module('core')
 
         var s3 = null;
         var clientId = 'amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'; // client ID
-        var roleArn = 'arn:aws:iam::<AWS_ACCOUNT_ID>:role/<WEB_IDENTITY_ROLE_NAME>';
+        var roleArn = 'arn:aws:iam::274437077325:role/<WEB_IDENTITY_ROLE_NAME>';
 
         window.onAmazonLoginReady = function() {
             amazon.Login.setClientId(clientId); // set client ID
