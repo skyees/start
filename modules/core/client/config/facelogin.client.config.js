@@ -22,7 +22,7 @@ angular.module('core')
             amazon.Login.setClientId(clientId); // set client ID
 
             var authRequest;
-            OffAmazonPayments.Button("login1", "MERCHANT_ID", {
+            OffAmazonPayments.Button("login1", "A277GHO78886BA", {
                 type: "PwA",
                 authorization: function () {
                    var loginOptions = { scope: "profile postal_code payments:widget payments:shipping_address", popup: true };
