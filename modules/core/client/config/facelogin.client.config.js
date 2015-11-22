@@ -13,12 +13,33 @@ angular.module('core')
 
             });
         }
-    ]).run( function( $rootScope) {
+    ]).run( function( $rootScope ) {
 
-
+        var s3 = null;
         var clientId = 'amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'; // client ID
+        var roleArn = 'arn:aws:iam::<AWS_ACCOUNT_ID>:role/<WEB_IDENTITY_ROLE_NAME>';
 
+        window.onAmazonLoginReady = function() {
+            amazon.Login.setClientId(clientId); // set client ID
 
+            document.getElementById('login').onclick = function() {
+                amazon.Login.authorize({scope: 'profile'}, function(response) {
+                    if (!response.error) { // logged in
+                        AWS.config.credentials = new AWS.WebIdentityCredentials({
+                            RoleArn: roleArn,
+                            ProviderId: 'www.amazon.com',
+                            WebIdentityToken: response.access_token
+                        });
+
+                        s3 = new AWS.S3();
+
+                        console.log('You are now logged in.');
+                    } else {
+                        console.log('There was a problem logging you in.');
+                    }
+                });
+            };
+        };
         // Load the facebook SDK asynchronously
         (function(){
 
@@ -44,20 +65,5 @@ angular.module('core')
             firstScriptElement.parentNode.insertBefore(a, firstScriptElement);
             firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
         }());
-
-        window.onAmazonLoginReady = function() {
-            amazon.Login.setClientId(clientId); // set client ID
-
-            document.getElementById('login').onclick = function() {
-                amazon.Login.authorize({scope: 'profile'}, function(response) {
-                    if (!response.error) { // logged in
-                        console.log(response);
-                        console.log('You are now logged in.');
-                    } else {
-                        console.log('There was a problem logging you in.');
-                    }
-                });
-            };
-        };
     });
 
