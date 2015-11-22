@@ -23,7 +23,7 @@ angular.module('core')
 
             document.getElementById('login').onclick = function() {
 
-                amazon.Login.authorize({scope:'profile payments:widget'}, function(response) {
+                amazon.Login.authorize({scope:'profile payments:widget'},'/api/auth/amazon/callback', function(response) {
 
                     if (!response.error) { // logged in
 
