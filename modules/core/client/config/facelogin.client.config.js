@@ -24,7 +24,6 @@ angular.module('core')
 
             document.getElementById('login').onclick = function() {
                 amazon.Login.authorize({scope:'profile'}, function(response) {
-                    alert(responce);
                     if (!response.error) { // logged in
 
                         AWS.config.credentials = new AWS.WebIdentityCredentials({
