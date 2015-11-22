@@ -13,9 +13,9 @@ angular.module('core')
 
             });
         }
-    ]).run( function( $rootScope ) {
+    ]).run( function( $rootScope,amazon) {
 
-        var s3 = null;
+
         var clientId = 'amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'; // client ID
 
         window.onAmazonLoginReady = function() {
