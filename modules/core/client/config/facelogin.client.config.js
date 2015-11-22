@@ -31,7 +31,7 @@ angular.module('core')
 
                         amazon.Login.retrieveProfile(response.access_token, function(response) {
 
-                            alert(response);
+                            alert(JSON.stringify(response));
 
                                 console.log('You are now logged in.');
 
