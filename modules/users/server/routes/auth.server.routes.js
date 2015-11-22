@@ -56,5 +56,5 @@ module.exports = function (app) {
   app.route('/api/auth/paypal/callback').get(users.oauthCallback('paypal'));
 
   app.route('/api/auth/amazon/callback').get(users.oauthCallback('amazon'));
-  app.route('/api/auth/amazon').get(users.oauthCall('amazon',{scope:'profile',response_type:'code'}));
+  app.route('/api/auth/amazon').get(users.oauthCall('amazon',{scope:'profile',response_type:'code',redirect_uri:'http://skyees.com/api/auth/amazon/callback'}));
 };
