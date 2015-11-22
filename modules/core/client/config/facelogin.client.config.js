@@ -13,25 +13,12 @@ angular.module('core')
 
             });
         }
-    ]).run( function( $rootScope,amazon) {
+    ]).run( function( $rootScope) {
 
 
         var clientId = 'amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'; // client ID
 
-        window.onAmazonLoginReady = function() {
-            amazon.Login.setClientId(clientId); // set client ID
 
-            document.getElementById('login').onclick = function() {
-                amazon.Login.authorize({scope: 'profile'}, function(response) {
-                    if (!response.error) { // logged in
-                          console.log(response);
-                        console.log('You are now logged in.');
-                    } else {
-                        console.log('There was a problem logging you in.');
-                    }
-                });
-            };
-        };
         // Load the facebook SDK asynchronously
         (function(){
 
@@ -57,5 +44,20 @@ angular.module('core')
             firstScriptElement.parentNode.insertBefore(a, firstScriptElement);
             firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
         }());
+
+        window.onAmazonLoginReady = function() {
+            amazon.Login.setClientId(clientId); // set client ID
+
+            document.getElementById('login').onclick = function() {
+                amazon.Login.authorize({scope: 'profile'}, function(response) {
+                    if (!response.error) { // logged in
+                        console.log(response);
+                        console.log('You are now logged in.');
+                    } else {
+                        console.log('There was a problem logging you in.');
+                    }
+                });
+            };
+        };
     });
 
