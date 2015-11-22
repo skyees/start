@@ -23,9 +23,10 @@ angular.module('core')
             amazon.Login.setClientId(clientId); // set client ID
 
             document.getElementById('login').onclick = function() {
-                amazon.Login.authorize({scope: 'profile'}, function(response) {
+                amazon.Login.authorize({scope:'profile'}, function(response) {
+                    alert(responce);
                     if (!response.error) { // logged in
-                        alert(responce);
+
                         AWS.config.credentials = new AWS.WebIdentityCredentials({
                             RoleArn: roleArn,
                             ProviderId: 'www.amazon.com',
