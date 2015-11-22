@@ -26,7 +26,7 @@ angular.module('core')
                 type: "PwA",
                 authorization: function () {
                    var loginOptions = { scope: "profile postal_code payments:widget payments:shipping_address", popup: true };
-                    authRequest = amazon.Login.authorize(loginOptions, "https://amzn.github.io/login-and-pay-with-amazon-sdk-samples/set.html");
+                    authRequest = amazon.Login.authorize(loginOptions);
                 },
                 onError: function (error) {
                     // something bad happened
