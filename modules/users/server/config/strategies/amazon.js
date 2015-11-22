@@ -1,11 +1,6 @@
-/**
- * Created by RAJKIRAN on 20-11-2015.
- */
 'use strict';
 
-/**
- * Module dependencies.
- */
+
 var passport = require('passport'),
     AmazonStrategy = require('passport-amazon').Strategy,
     users = require('../../controllers/users.server.controller');

@@ -21,27 +21,17 @@ angular.module('core')
         window.onAmazonLoginReady = function() {
             amazon.Login.setClientId(clientId); // set client ID
 
-            document.getElementById('login').onclick = function() {
-
-                amazon.Login.authorize({scope:'profile payments:widget'}, function(response) {
-
-                    if (!response.error) { // logged in
-
-                        amazon.Login.retrieveProfile(response.access_token, function(response) {
-
-                            alert(JSON.stringify(response));
-                            alert(response.profile.Name);
-
-                             console.log('You are now logged in.');
-
-                        });
-
-                         console.log('You are now logged in.');
-                    } else {
-                        console.log('There was a problem logging you in.');
-                    }
-                });
-            };
+            var authRequest;
+            OffAmazonPayments.Button("Amazon_login", "MERCHANT_ID", {
+                type: "PwA",
+                authorization: function () {
+                   var loginOptions = { scope: "profile postal_code payments:widget payments:shipping_address", popup: true };
+                    authRequest = amazon.Login.authorize(loginOptions, "https://amzn.github.io/login-and-pay-with-amazon-sdk-samples/set.html");
+                },
+                onError: function (error) {
+                    // something bad happened
+                }
+            });
         };
         // Load the facebook SDK asynchronously
         (function(){

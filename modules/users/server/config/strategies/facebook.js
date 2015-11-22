@@ -16,7 +16,7 @@ var passport = require('passport'),
 module.exports = function (config) {
   // Use facebook strategy
   passport.use(new FacebookStrategy({
-          clientID: config.facebook.clientID,
+      clientID: config.facebook.clientID,
       clientSecret: config.facebook.clientSecret,
       callbackURL: config.facebook.callbackURL,
       profileFields: ['id', 'name', 'displayName', 'emails', 'photos'],
