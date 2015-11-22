@@ -14,10 +14,10 @@ angular.module('core')
             });
         }
     ]).run( function( $rootScope ) {
-      var amazon = null;
+
         var s3 = null;
         var clientId = 'amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'; // client ID
-        var roleArn = 'arn:aws:iam::<AWS_ACCOUNT_ID>:role/<WEB_IDENTITY_ROLE_NAME>';
+        var roleArn = 'arn:aws:iam::274437077325 >:role/smart';
 
         window.onAmazonLoginReady = function() {
             amazon.Login.setClientId(clientId); // set client ID
@@ -25,8 +25,13 @@ angular.module('core')
             document.getElementById('login').onclick = function() {
                 amazon.Login.authorize({scope: 'profile'}, function(response) {
                     if (!response.error) { // logged in
+                        AWS.config.credentials = new AWS.WebIdentityCredentials({
+                            RoleArn: roleArn,
+                            ProviderId: 'www.amazon.com',
+                            WebIdentityToken: response.access_token
+                        });
 
-                        console.log(response);
+                        s3 = new AWS.S3();
 
                         console.log('You are now logged in.');
                     } else {
@@ -41,7 +46,7 @@ angular.module('core')
             var a = document.createElement('script'); a.type = 'text/javascript';
             a.async = true; a.id = 'amazon-login-sdk';
             a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
-
+            document.getElementById('amazon-root').appendChild(a);
 
             // If we've already installed the SDK, we're done
             if (document.getElementById('facebook-jssdk')) {return;}
@@ -57,7 +62,6 @@ angular.module('core')
             facebookJS.src = '//connect.facebook.net/en_US/all.js';
 
             // Insert the Facebook JS SDK
-            firstScriptElement.parentNode.insertBefore(a, firstScriptElement);
             firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
         }());
     });
