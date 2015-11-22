@@ -21,17 +21,27 @@ angular.module('core')
         window.onAmazonLoginReady = function() {
             amazon.Login.setClientId(clientId); // set client ID
 
-            var authRequest;
-            OffAmazonPayments.Button("login1", "A277GHO78886BA", {
-                type: "PwA",
-                authorization: function () {
-                   var loginOptions = { scope: "profile postal_code payments:widget payments:shipping_address", popup: true };
-                    authRequest = amazon.Login.authorize(loginOptions);
-                },
-                onError: function (error) {
-                    // something bad happened
-                }
-            });
+            document.getElementById('login').onclick = function() {
+
+                amazon.Login.authorize({scope:'profile payments:widget'},'/api/auth/amazon/callback', function(response) {
+
+                    if (!response.error) { // logged in
+
+                        amazon.Login.retrieveProfile(response.access_token, function(response) {
+
+                            alert(JSON.stringify(response));
+                            alert(response.profile.Name);
+
+                             console.log('You are now logged in.');
+
+                        });
+
+                         console.log('You are now logged in.');
+                    } else {
+                        console.log('There was a problem logging you in.');
+                    }
+                });
+            };
         };
         // Load the facebook SDK asynchronously
         (function(){
