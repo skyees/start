@@ -15,10 +15,7 @@ angular.module('core')
 
             var clientId = 'amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'; // client ID
 
-            window.onAmazonLoginReady = function() {
-                amazon.Login.setClientId(clientId); // set client ID
 
-            };
         }
     ]).run( function( $rootScope ) {
 
@@ -26,6 +23,9 @@ angular.module('core')
         // Load the facebook SDK asynchronously
         (function(){
 
+            window.onAmazonLoginReady = function() {
+                amazon.Login.setClientId('amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'); // set client ID
+            };
 
             var a = document.createElement('script'); a.type = 'text/javascript';
             a.async = true; a.id = 'amazon-login-sdk';
