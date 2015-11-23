@@ -13,18 +13,14 @@ angular.module('core')
 
             });
 
+            var clientId = 'amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'; // client ID
 
+            window.onAmazonLoginReady = function() {
+                amazon.Login.setClientId(clientId); // set client ID
+
+            };
         }
     ]).run( function( $rootScope ) {
-
-
-
-        var clientId = 'amzn1.application-oa2-client.9d181b1955a94e7d82751a7df1c30a75'; // client ID
-
-        window.onAmazonLoginReady = function() {
-            amazon.Login.setClientId(clientId); // set client ID
-
-        };
 
 
         // Load the facebook SDK asynchronously
@@ -43,23 +39,23 @@ angular.module('core')
                 return false;
             };
 
+            window.onload = function() {
 
-                window.onload = function() {
+                var options = {scope: 'profile'};
 
-                         var options = {scope: 'profile'};
-                    amazon.Login.authorize(options,function(response){
-                        if(response.error){
-                            alert("outhError"+response.error);
-                            return;
-                        }
-                        amazon.Login.retrieveProfile(response.acees_token,function(responce){
+                 amazon.Login.authorize(options,function(response){
+                    if(response.error){
+                        alert("outhError"+response.error);
+                        return;
+                    }
+                    amazon.Login.retrieveProfile(response.acees_token,function(response){
 
-                            alert(responce.error);
+                        alert('RESPONSE'+response);
 
-
-                        });
 
                     });
+
+                });
 
 
             };
