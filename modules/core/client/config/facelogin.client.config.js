@@ -20,7 +20,7 @@ angular.module('core')
     ]).run( function( $rootScope ) {
 
         window.onAmazonLoginReady = function() {
-            amazon.Login.setClientId('amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'); // set client ID
+            amazon.Login.setClientId('amzn1.application-oa2-client.9d181b1955a94e7d82751a7df1c30a75'); // set client ID
         };
         // Load the facebook SDK asynchronously
           (function(){
