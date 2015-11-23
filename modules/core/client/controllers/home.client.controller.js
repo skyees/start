@@ -5,7 +5,7 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
-      $scope.urls = $sce.trustAsResourceUrl('https://amazon.in');
+      $scope.urls = $sce.trustAsResourceUrl('http://amazon.in');
       $scope.yourURL = $sce.trustAsResourceUrl('https://angularjs.org');
 
       $scope.loadFriends = function() {
