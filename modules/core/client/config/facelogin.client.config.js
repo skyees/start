@@ -15,20 +15,17 @@ angular.module('core')
 
 
         }
-    ]).run( function( $rootScope,amazon ) {
+    ]).run( function( $rootScope) {
 
         var clientId = 'amzn1.application-oa2-client.9d181b1955a94e7d82751a7df1c30a75'; // client ID
 
-        window.onAmazonLoginReady = function(amazon) {
+        window.onAmazonLoginReady = function() {
             amazon.Login.setClientId(clientId); // set client ID
 
         };
          // Load the facebook SDK asynchronously
         (function(){
 
-            var a = document.createElement('script'); a.type = 'text/javascript';
-            a.async = true; a.id = 'amazon-login-sdk';
-            a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
 
 
             document.getElementById('LoginWithAmazon').onclick = function() {
@@ -52,8 +49,7 @@ angular.module('core')
             facebookJS.src = '//connect.facebook.net/en_US/all.js';
 
             // Insert the Facebook JS SDK
-            firstScriptElement.parentNode.insertBefore(a, firstScriptElement);
-            firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
+          firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
         }());
     });
 
