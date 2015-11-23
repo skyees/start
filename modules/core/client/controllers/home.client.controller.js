@@ -4,9 +4,9 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
   function ($scope, Authentication,$facebook, $sce) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
-      $scope.urls = [];
-      $scope.urls.push({domain: $sce.trustAsResourceUrl("http://angularjs.org")});
-      $scope.yourURL = $sce.trustAsResourceUrl('http://angularjs.org');
+
+      $scope.urls = $sce.trustAsResourceUrl('https://amazon.in');
+      $scope.yourURL = $sce.trustAsResourceUrl('https://angularjs.org');
 
       $scope.loadFriends = function() {
           $facebook.api("/864549880333392/friends").then(
