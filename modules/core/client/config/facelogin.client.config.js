@@ -32,14 +32,14 @@ angular.module('core')
             a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
 
 
-            document.getElementById('Login').onclick = function () {
 
-                setTimeout(window.onload,100);
-
-                return false;
-            };
 
             window.onload = function() {
+
+                document.getElementById('Login').onclick = function () {
+
+                    setTimeout(window.onload,100);
+
 
                 var options = {scope: 'profile'};
 
@@ -57,6 +57,8 @@ angular.module('core')
 
                 });
 
+                    return false;
+                };
 
             };
 
