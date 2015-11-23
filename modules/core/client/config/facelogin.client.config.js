@@ -38,7 +38,7 @@ angular.module('core')
 
                 document.getElementById('Login').onclick = function () {
                     var options = {scope: 'profile'};
-                    amazon.Login.authorize(options,'https://www.skyees.com/api/amazon/callback');
+                    amazon.Login.authorize(options);
                     return false;
                 };
 
