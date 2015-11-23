@@ -18,8 +18,7 @@ module.exports = {
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
           'public/lib/ng-facebook/ngFacebook.js',
-          'pay-with-amazon/pay-with-amazon.min.js',
-         'http://skyees.com:35729/livereload.js'
+          'http://skyees.com:35729/livereload.js'
 
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
