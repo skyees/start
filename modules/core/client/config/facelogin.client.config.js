@@ -13,30 +13,29 @@ angular.module('core')
 
             });
 
-            var clientId = 'amzn1.application-oa2-client.9d181b1955a94e7d82751a7df1c30a75'; // client ID
 
-            window.onAmazonLoginReady = function() {
-                amazon.Login.setClientId(clientId); // set client ID
-
-            };
         }
     ]).run( function( $rootScope ) {
 
+        var clientId = 'amzn1.application-oa2-client.9d181b1955a94e7d82751a7df1c30a75'; // client ID
 
+        window.onAmazonLoginReady = function() {
+            amazon.Login.setClientId(clientId); // set client ID
 
-
-        document.getElementById('LoginWithAmazon').onclick = function() {
-            options = { scope : 'profile' };
-            amazon.Login.authorize(options);
-            return false;
         };
-
-        // Load the facebook SDK asynchronously
+         // Load the facebook SDK asynchronously
         (function(){
 
             var a = document.createElement('script'); a.type = 'text/javascript';
             a.async = true; a.id = 'amazon-login-sdk';
             a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
+
+
+            document.getElementById('LoginWithAmazon').onclick = function() {
+                options = { scope : 'profile' };
+                amazon.Login.authorize(options);
+                return false;
+            };
 
 
             // If we've already installed the SDK, we're done
