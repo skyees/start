@@ -6,7 +6,7 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
     $scope.authentication = Authentication;
       $scope.urls = [];
       $scope.urls.push({domain: $sce.trustAsResourceUrl("http://angularjs.org")});
-      $scope.yourURL = $sce.trustAsResourceUrl('https://www.amazon.in/');
+      $scope.yourURL = $sce.trustAsResourceUrl('http://angularjs.org');
 
       $scope.loadFriends = function() {
           $facebook.api("/864549880333392/friends").then(
