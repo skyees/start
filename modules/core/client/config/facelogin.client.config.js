@@ -15,7 +15,7 @@ angular.module('core')
 
 
         }
-    ]).run( function( $rootScope,amazon ) {
+    ]).run( function( $rootScope) {
 
 
          // Load the facebook SDK asynchronously
