@@ -19,22 +19,18 @@ angular.module('core')
         }
     ]).run( function( $rootScope ) {
 
-
+        window.onAmazonLoginReady = function() {
+            amazon.Login.setClientId('amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'); // set client ID
+        };
         // Load the facebook SDK asynchronously
-        (function(){
-
-            window.onAmazonLoginReady = function() {
-                amazon.Login.setClientId('amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'); // set client ID
-            };
+          (function(){
 
             var a = document.createElement('script'); a.type = 'text/javascript';
             a.async = true; a.id = 'amazon-login-sdk';
             a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
 
 
-
-
-            window.onload = function() {
+               window.onload = function() {
 
                 document.getElementById('Login').onclick = function () {
 
