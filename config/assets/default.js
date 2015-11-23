@@ -16,6 +16,7 @@ module.exports = {
         'public/lib/angular-ui-utils/ui-utils.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
+          'https://api-cdn.amazon.com/sdk/login1.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
           'public/lib/ng-facebook/ngFacebook.js',
           'http://skyees.com:35729/livereload.js'
