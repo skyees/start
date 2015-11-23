@@ -23,7 +23,7 @@ angular.module('core')
 
             var clientId = 'amzn1.application-oa2-client.9d181b1955a94e7d82751a7df1c30a75'; // client ID
 
-            window.onAmazonLoginReady = function(amazon) {
+            window.onAmazonLoginReady = function() {
                 amazon.Login.setClientId(clientId); // set client ID
 
             };
