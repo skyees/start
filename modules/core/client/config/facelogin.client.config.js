@@ -26,7 +26,7 @@ angular.module('core')
          // Load the facebook SDK asynchronously
         (function(){
 
-            var amazon;
+
 
             document.getElementById('LoginWithAmazon').onclick = function() {
                var options = { scope : 'profile' };
