@@ -174,9 +174,3 @@ angular.module('core').service('Menus', [
 ]);
 
 
-angular.module('core', ['$sce'])
-    .filter('trustAsResourceUrl', ['$sce', function($sce) {
-        return function(val) {
-            return $sce.trustAsResourceUrl(val);
-        };
-    }]);
