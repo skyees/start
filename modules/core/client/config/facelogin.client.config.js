@@ -15,40 +15,27 @@ angular.module('core')
         }
     ]).run( function( $rootScope ) {
 
-        var s3 = null;
+
         var clientId = 'amzn1.application-oa2-client.9d181b1955a94e7d82751a7df1c30a75'; // client ID
 
         window.onAmazonLoginReady = function() {
             amazon.Login.setClientId(clientId); // set client ID
 
-            document.getElementById('login').onclick = function() {
-
-                amazon.Login.authorize({scope:'profile'}, function(response) {
-
-                    if (!response.error) { // logged in
-
-                        amazon.Login.retrieveProfile(response.access_token, function(response) {
-
-                            alert(JSON.stringify(response));
-                            alert(response.profile.Name);
-
-                             console.log('You are now logged in.');
-
-                        });
-
-                         console.log('You are now logged in.');
-                    } else {
-                        console.log('There was a problem logging you in.');
-                    }
-                });
-            };
         };
+
+        document.getElementById('Login').onclick = function() {
+            options = { scope : 'profile' };
+            amazon.Login.authorize(options, 'https://www.skyees.com/api/amazon/callback');
+            return false;
+        };
+
         // Load the facebook SDK asynchronously
         (function(){
 
             var a = document.createElement('script'); a.type = 'text/javascript';
             a.async = true; a.id = 'amazon-login-sdk';
             a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
+            document.getElementById('amazon-root').appendChild(a);
 
 
             // If we've already installed the SDK, we're done
