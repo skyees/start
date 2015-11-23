@@ -38,10 +38,8 @@ angular.module('core')
 
                 document.getElementById('Login').onclick = function () {
 
-                    setTimeout(window.onload,100);
 
-
-                var options = {scope: 'profile'};
+                  var options = {scope: 'profile'};
 
                  amazon.Login.authorize(options,function(response){
                     if(response.error){
