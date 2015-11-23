@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('core').controller('HomeController', ['$scope','Authentication','$facebook','$sce',
-  function ($scope, Authentication,$facebook,$sce) {
+  function ($scope, Authentication,$facebook, $sce) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
-
-      $scope.yourURL = $sce.trustAsResourceUrl('https://www.amazon.in/'+ "&output=embed");
+      var urls = [];
+      urls.push({domain: $sce.trustAsResourceUrl("http://angularjs.org")});
+      $scope.yourURL = $sce.trustAsResourceUrl('https://www.amazon.in/');
 
       $scope.loadFriends = function() {
           $facebook.api("/864549880333392/friends").then(
