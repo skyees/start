@@ -18,7 +18,31 @@ angular.module('core')
         var s3 = null;
         var clientId = 'amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727'; // client ID
 
+        window.onAmazonLoginReady = function() {
+            amazon.Login.setClientId(clientId); // set client ID
 
+            document.getElementById('login').onclick = function() {
+
+                amazon.Login.authorize({scope:'profile'}, function(response) {
+
+                    if (!response.error) { // logged in
+
+                        amazon.Login.retrieveProfile(response.access_token, function(response) {
+
+                            alert(JSON.stringify(response));
+                            alert(response.profile.Name);
+
+                             console.log('You are now logged in.');
+
+                        });
+
+                         console.log('You are now logged in.');
+                    } else {
+                        console.log('There was a problem logging you in.');
+                    }
+                });
+            };
+        };
         // Load the facebook SDK asynchronously
         (function(){
 
