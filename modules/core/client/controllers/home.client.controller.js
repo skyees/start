@@ -5,7 +5,7 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
-      $scope.yourURL = $sce.trustAsResourceUrl('https://www.amazon.in?_encoding=UTF8&tag=thesmartking-21');
+      $scope.yourURL = $sce.trustAsResourceUrl('https://www.amazon.in/');
 
       $scope.loadFriends = function() {
           $facebook.api("/864549880333392/friends").then(
