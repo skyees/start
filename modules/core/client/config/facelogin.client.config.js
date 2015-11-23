@@ -34,13 +34,15 @@ angular.module('core')
             a.async = true; a.id = 'amazon-login-sdk';
             a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
 
+            window.onload = function() {
 
-            document.getElementById('Login').onclick = function() {
-                var options = { scope : 'profile' };
-                amazon.Login.authorize(options);
-                return false;
+                document.getElementById('Login').onclick = function () {
+                    var options = {scope: 'profile'};
+                    amazon.Login.authorize(options);
+                    return false;
+                };
+
             };
-
 
             // If we've already installed the SDK, we're done
             if (document.getElementById('facebook-jssdk')) {return;}
