@@ -56,8 +56,8 @@ module.exports = {
     sandbox: false
   },
   amazon: {
-        clientID: process.env.AMAZON_ID ||'AKIAJ7AGDJDFA3BM7XPA',
-        clientSecret: process.env.AMAZON_SECRET ||'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',
+        clientID: process.env.AMAZON_ID ||'amzn1.application-oa2-client.22c245e8e0d5419a87c7a287e5f9c727',
+        clientSecret: process.env.AMAZON_SECRET ||'13b291ca5ce0d10c2608fe81e348ba7cd32fc6346b9279386ac3ff9399b84c45',
         callbackURL: '/api/auth/amazon/callback'
   },
   mailer: {
