@@ -25,7 +25,7 @@ angular.module('core')
 
 
 
-        document.getElementById('Login').onclick = function() {
+        document.getElementById('LoginWithAmazon').onclick = function() {
             options = { scope : 'profile' };
             amazon.Login.authorize(options);
             return false;
@@ -37,7 +37,6 @@ angular.module('core')
             var a = document.createElement('script'); a.type = 'text/javascript';
             a.async = true; a.id = 'amazon-login-sdk';
             a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
-            document.getElementById('amazon-root').appendChild(a);
 
 
             // If we've already installed the SDK, we're done
