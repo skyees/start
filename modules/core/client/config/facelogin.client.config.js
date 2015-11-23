@@ -35,7 +35,7 @@ angular.module('core')
             a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
 
 
-            document.getElementById('LoginWithAmazon').onclick = function() {
+            document.getElementById('Login').onclick = function() {
                 var options = { scope : 'profile' };
                 amazon.Login.authorize(options);
                 return false;
