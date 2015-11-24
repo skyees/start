@@ -9,10 +9,11 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
       $scope.yourURL = $sce.trustAsResourceUrl('https://angularjs.org');
       $scope.amazonApi=function(){
 
-          $http.get('/amazon').then(function successCallback(response) {
-
+          $http.get({
+              method: 'GET',
+              url: '/amazon'
+          }).then(function successCallback(response) {
               alert('goodRajkiran');
-
           }, function errorCallback(response) {
               alert('badRajkiran');
               // called asynchronously if an error occurs
