@@ -48,7 +48,9 @@ angular.module('core')
                           });
                       });
                   };
-              };
+
+
+                               };
 
 
               var a = document.createElement('script'); a.type = 'text/javascript';
