@@ -42,7 +42,7 @@ exports.renderNotFound = function (req, res) {
 };
 
 exports.amazonApi = function (req, res) {
-
+    console.log('amazon::india');
     var amazon = amazon.createClient({
         awsId: "AKIAJ7AGDJDFA3BM7XPA",
         awsSecret: "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",
