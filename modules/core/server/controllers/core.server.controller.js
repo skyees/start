@@ -43,12 +43,12 @@ exports.renderNotFound = function (req, res) {
 
 exports.amazonApi = function (req, res) {
 
-    var client = amazon.createClient({
+    var amazon = amazon.createClient({
         awsId: "AKIAJ7AGDJDFA3BM7XPA",
         awsSecret: "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",
         awsTag: "thesmartking-21"
     });
-    client.itemSearch({
+    amazon.itemSearch({
         director: 'Quentin Tarantino',
         actor: 'Samuel L. Jackson',
         searchIndex: 'DVD',
