@@ -1,7 +1,8 @@
 'use strict';
 
 // Core module config
-
+var amazon;
+var OffAmazonPayments;
 angular.module('core')
     .config(['$facebookProvider',
         function($facebookProvider)
