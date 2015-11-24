@@ -20,6 +20,10 @@ angular.module('core')
     ]).run( function( $rootScope ) {
 
 
+        window.onAmazonLoginReady = function() {
+            amazon.Login.setClientId('amzn1.application-oa2-client.9d181b1955a94e7d82751a7df1c30a75');
+        };
+
         // Load the facebook SDK asynchronously
           (function(){
 
@@ -30,34 +34,20 @@ angular.module('core')
 
                window.onload = function() {
 
-                   window.onAmazonLoginReady = function() {
-                       amazon.Login.setClientId('amzn1.application-oa2-client.9d181b1955a94e7d82751a7df1c30a75'); // set client ID
-                   };
+                  var options = { scope: 'profile' };
+
+                   amazon.Login.authorize(options, function(response) {
+                       if ( response.error ) {
+                           alert('oauth error ' + response.error);
+                           return;
+                       }
+                       alert('success: ' + response.access_token);
+                   });
 
 
-                   document.getElementById('Login').onclick = function () {
+               };
 
 
-                  var options = {scope: 'profile'};
-
-                 amazon.Login.authorize(options,function(response){
-                    if(response.error){
-                        alert("outhError"+response.error);
-                        return;
-                    }
-                    amazon.Login.retrieveProfile(response.acees_token,function(response){
-
-                        alert('RESPONSE'+response);
-
-
-                    });
-
-                });
-
-                    return false;
-                };
-
-            };
 
             // If we've already installed the SDK, we're done
             if (document.getElementById('facebook-jssdk')) {return;}
