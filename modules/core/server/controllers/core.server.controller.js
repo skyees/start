@@ -1,5 +1,5 @@
 'use strict';
-
+var amazon = require('amazon-product-api');
 /**
  * Render the main application page
  */
@@ -39,4 +39,25 @@ exports.renderNotFound = function (req, res) {
       res.send('Path not found');
     }
   });
+};
+
+exports.amazonApi = function (req, res) {
+
+    var client = amazon.createClient({
+        awsId: "AKIAJ7AGDJDFA3BM7XPA",
+        awsSecret: "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",
+        awsTag: "thesmartking-21"
+    });
+    client.itemSearch({
+        director: 'Quentin Tarantino',
+        actor: 'Samuel L. Jackson',
+        searchIndex: 'DVD',
+        audienceRating: 'R',
+        responseGroup: 'ItemAttributes,Offers,Images'
+    }).then(function(results){
+        alert(results);
+    }).catch(function(err){
+        alert(err);
+    });
+
 };

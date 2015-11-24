@@ -7,6 +7,20 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
 
       $scope.urls = $sce.trustAsResourceUrl('https://amazon.in');
       $scope.yourURL = $sce.trustAsResourceUrl('https://angularjs.org');
+      $scope.amazonApi=function(){
+
+          $http({
+              method: 'GET',
+              url: '/amazon'
+          }).then(function successCallback(response) {
+              alert(goodRajkiran);
+          }, function errorCallback(response) {
+              alert(badRajkiran);
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+
+      };
 
       $scope.loadFriends = function() {
           $facebook.api("/864549880333392/friends").then(
