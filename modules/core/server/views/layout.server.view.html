@@ -41,7 +41,36 @@
     amazon.Login.setClientId('amzn1.application-oa2-client.9d181b1955a94e7d82751a7df1c30a75');
   };
 </script>
+<script type='text/javascript' src='https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js'></script>
+<script type="text/javascript">
+  new OffAmazonPayments.Widgets.AddressBook({
+    sellerId: 'A277GHO78886BA',
+    onOrderReferenceCreate: function (orderReference) {
+      orderReferenceId = orderReference.getAmazonOrderReferenceId();
+    },
+    onAddressSelect: function () {
+      // do stuff here like recalculate tax and/or shipping
+    },
+    design: {
+      designMode: 'responsive'
+    },
+    onError: function (error) {
+      // your error handling code
+    }
+  }).bind("addressBookWidgetDiv");
 
+  new OffAmazonPayments.Widgets.Wallet({
+    sellerId: 'A277GHO78886BA',
+    onPaymentSelect: function () {
+    },
+    design: {
+      designMode: 'responsive'
+    },
+    onError: function (error) {
+      // your error handling code
+    }
+  }).bind("walletWidgetDiv");
+</script>
   <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
   <section class="content">
     <section class="container">
