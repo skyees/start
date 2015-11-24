@@ -31,7 +31,7 @@ angular.module('core')
 
                     amazon.Login.authorize(options,function(response) {
 
-                       if ( response.error ) {
+                        if ( response.error ) {
                            alert('oauth error ' + response.error);
                            return;
                        }
