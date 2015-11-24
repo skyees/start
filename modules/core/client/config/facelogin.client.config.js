@@ -29,7 +29,7 @@ angular.module('core')
 
                   var options = { scope: 'profile' };
 
-                    amazon.Login.authorize(options,'/api/auth/amazon/callback', function(response) {
+                    amazon.Login.authorize(options,function(response) {
 
                        if ( response.error ) {
                            alert('oauth error ' + response.error);
