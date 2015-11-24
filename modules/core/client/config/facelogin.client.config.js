@@ -53,9 +53,7 @@ angular.module('core')
                                };
 
 
-              var a = document.createElement('script'); a.type = 'text/javascript';
-              a.async = true; a.id = 'amazon-login-sdk';
-              a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
+
 
 
             // If we've already installed the SDK, we're done
@@ -72,7 +70,7 @@ angular.module('core')
             facebookJS.src = '//connect.facebook.net/en_US/all.js';
 
             // Insert the Facebook JS SDK
-            firstScriptElement.parentNode.insertBefore(a, firstScriptElement);
+
             firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
         }());
     });
