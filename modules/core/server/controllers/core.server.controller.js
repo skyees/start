@@ -59,7 +59,7 @@ exports.amazonApi = function (req, res) {
         alert(results);
     }).catch(function(err){
         alert(err);
-        console.log('amazon::'+results);
+        console.log('amazon::'+err);
     });
 
 };
