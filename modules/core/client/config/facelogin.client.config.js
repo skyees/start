@@ -32,7 +32,7 @@ angular.module('core')
                       return false;
                   };
                   window.doLogin = function () {
-                      options = {};
+                      var options = {};
                       options.scope = 'profile';
                       amazon.Login.authorize(options, function (response) {
                           if (response.error) {
