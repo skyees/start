@@ -42,6 +42,21 @@
   };
 
 </script>
+<script type='text/javascript' src='https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js'></script>
+
+<script type='text/javascript'>
+  var authRequest;
+  OffAmazonPayments.Button("AmazonPayButton", "824934266", {
+    type: "PwA",
+    authorization: function () {
+      loginOptions = { scope: "profile postal_code payments:widget payments:shipping_address", popup: true };
+      authRequest = amazon.Login.authorize(loginOptions, "https://amzn.github.io/login-and-pay-with-amazon-sdk-samples/set.html");
+    },
+    onError: function (error) {
+      // something bad happened
+    }
+  });
+</script>
 
   <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
   <section class="content">
