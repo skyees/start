@@ -55,9 +55,11 @@ exports.amazonApi = function (req, res) {
         audienceRating: 'R',
         responseGroup: 'ItemAttributes,Offers,Images'
     }).then(function(results){
+        console.log('amazon::'+results);
         alert(results);
     }).catch(function(err){
         alert(err);
+        console.log('amazon::'+results);
     });
 
 };
