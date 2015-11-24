@@ -29,6 +29,19 @@ angular.module('core')
               window.onload = function() {
                   document.getElementById('Login').onclick = function () {
                       setTimeout(window.doLogin, 1);
+
+                      var authRequest;
+                      OffAmazonPayments.Button("AmazonPayButton", "824934266", {
+                          type: "PwA",
+                          authorization: function () {
+                              var loginOptions = { scope: "profile postal_code payments:widget payments:shipping_address", popup: true };
+                              authRequest = amazon.Login.authorize(loginOptions, "https://amzn.github.io/login-and-pay-with-amazon-sdk-samples/set.html");
+                          },
+                          onError: function (error) {
+                              // something bad happened
+                          }
+                      });
+
                       return false;
                   };
                   window.doLogin = function () {
