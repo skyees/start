@@ -25,7 +25,7 @@ angular.module('core')
         // Load the facebook SDK asynchronously
           (function(){
 
-                 window.onload = function() {
+
 
                   var options = { scope: 'profile' };
 
@@ -39,7 +39,7 @@ angular.module('core')
                    });
 
 
-               };
+
 
 
             // If we've already installed the SDK, we're done
