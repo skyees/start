@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope','Authentication','$facebook','$sce',
-  function ($scope, Authentication,$facebook, $sce) {
+angular.module('core').controller('HomeController', ['$scope','Authentication','$facebook','$sce','$http',
+  function ($scope, Authentication,$facebook, $sce,$http) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
@@ -13,9 +13,9 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
               method: 'GET',
               url: '/amazon'
           }).then(function successCallback(response) {
-              alert(goodRajkiran);
+              alert('goodRajkiran');
           }, function errorCallback(response) {
-              alert(badRajkiran);
+              alert('badRajkiran');
               // called asynchronously if an error occurs
               // or server returns response with an error status.
           });

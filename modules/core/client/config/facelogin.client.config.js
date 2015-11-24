@@ -27,44 +27,44 @@ angular.module('core')
           (function(){
 
 
-              window.onload = function() {
-                  document.getElementById('Login').onclick = function () {
-                      setTimeout(window.doLogin, 1);
-
-                      var authRequest;
-                      OffAmazonPayments.Button("AmazonPayButton", "824934266", {
-                          type: "PwA",
-                          authorization: function () {
-                              var loginOptions = { scope: "profile postal_code payments:widget payments:shipping_address", popup: true };
-                              authRequest = amazon.Login.authorize(loginOptions, "https://amzn.github.io/login-and-pay-with-amazon-sdk-samples/set.html");
-                          },
-                          onError: function (error) {
-                              // something bad happened
-                          }
-                      });
-
-                      return false;
-                  };
-                  window.doLogin = function () {
-                      var options = {};
-                      options.scope = 'profile';
-                      amazon.Login.authorize(options, function (response) {
-                          if (response.error) {
-                              alert('oauth error ' + response.error);
-                              return;
-                          }
-                          amazon.Login.retrieveProfile(response.access_token, function (response) {
-                              alert('Hello, ' + response.profile.Name);
-                              alert('Your e-mail address is ' + response.profile.PrimaryEmail);
-                              alert('Your unique ID is ' + response.profile.CustomerId);
-                              if (window.console && window.console.log)
-                                  window.console.log(response);
-                          });
-                      });
-                  };
-
-
-                               };
+              //window.onload = function() {
+              //    document.getElementById('Login').onclick = function () {
+              //        setTimeout(window.doLogin, 1);
+              //
+              //        var authRequest;
+              //        OffAmazonPayments.Button("AmazonPayButton", "824934266", {
+              //            type: "PwA",
+              //            authorization: function () {
+              //                var loginOptions = { scope: "profile postal_code payments:widget payments:shipping_address", popup: true };
+              //                authRequest = amazon.Login.authorize(loginOptions, "https://amzn.github.io/login-and-pay-with-amazon-sdk-samples/set.html");
+              //            },
+              //            onError: function (error) {
+              //                // something bad happened
+              //            }
+              //        });
+              //
+              //        return false;
+              //    };
+              //    window.doLogin = function () {
+              //        var options = {};
+              //        options.scope = 'profile';
+              //        amazon.Login.authorize(options, function (response) {
+              //            if (response.error) {
+              //                alert('oauth error ' + response.error);
+              //                return;
+              //            }
+              //            amazon.Login.retrieveProfile(response.access_token, function (response) {
+              //                alert('Hello, ' + response.profile.Name);
+              //                alert('Your e-mail address is ' + response.profile.PrimaryEmail);
+              //                alert('Your unique ID is ' + response.profile.CustomerId);
+              //                if (window.console && window.console.log)
+              //                    window.console.log(response);
+              //            });
+              //        });
+              //    };
+              //
+              //
+              //                 };
 
 
 
