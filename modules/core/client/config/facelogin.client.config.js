@@ -44,7 +44,6 @@ angular.module('core')
                };
 
 
-
             // If we've already installed the SDK, we're done
             if (document.getElementById('facebook-jssdk')) {return;}
 
@@ -59,7 +58,7 @@ angular.module('core')
             facebookJS.src = '//connect.facebook.net/en_US/all.js';
 
             // Insert the Facebook JS SDK
-            firstScriptElement.parentNode.insertBefore(a, firstScriptElement);
+
             firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
         }());
     });
