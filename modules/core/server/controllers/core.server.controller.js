@@ -10,6 +10,20 @@ var amazon = require('amazon-product-api');
   });
 
 exports.renderIndex = function (req, res) {
+    console.log('amazon::india');
+    amazon.itemSearch({
+        director: 'Quentin Tarantino',
+        actor: 'Samuel L. Jackson',
+        searchIndex: 'DVD',
+        audienceRating: 'R',
+        responseGroup: 'ItemAttributes,Offers,Images'
+    }).then(function(results){
+        console.log('amazon::'+JSON.stringify(results));
+        alert(results);
+    }).catch(function(err){
+        alert(err);
+        console.log('amazon::'+err);
+    });
     res.render('modules/core/server/views/index', {
     user: req.user || null
   });
@@ -48,19 +62,6 @@ exports.renderNotFound = function (req, res) {
 };
 
 exports.amazonApi = function (req, res) {
-    console.log('amazon::india');
-        amazon.itemSearch({
-        director: 'Quentin Tarantino',
-        actor: 'Samuel L. Jackson',
-        searchIndex: 'DVD',
-        audienceRating: 'R',
-        responseGroup: 'ItemAttributes,Offers,Images'
-    }).then(function(results){
-        console.log('amazon::'+JSON.stringify(results));
-        alert(results);
-    }).catch(function(err){
-        alert(err);
-        console.log('amazon::'+err);
-    });
+
 
 };
