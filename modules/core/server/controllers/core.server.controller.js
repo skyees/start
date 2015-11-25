@@ -63,5 +63,5 @@ exports.renderNotFound = function (req, res) {
 
 exports.amazonApi = function (req, res) {
 
-
+    console.log('myamazon::india');
 };
