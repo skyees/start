@@ -9,7 +9,7 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
       $scope.yourURL = $sce.trustAsResourceUrl('https://angularjs.org');
       $scope.amazonApi=function(){
 
-          $http.get({
+          $http({
               method: 'GET',
               url: '/amazon'
           }).then(function successCallback(response) {
