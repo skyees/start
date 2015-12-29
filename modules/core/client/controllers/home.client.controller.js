@@ -17,7 +17,7 @@ angular.module('core').controller('HomeController', ['$scope','Authentication','
           }, function errorCallback(response) {
               alert('badRajkiran');
               // called asynchronously if an error occurs
-              // or server returns response with an error.....
+              // or server returns response with an error
           });
 
       };
