@@ -4,7 +4,9 @@ var amazon = require('amazon-product-api');
  * Render the main application page
  */
   amazon = amazon.createClient({
-
+      awsId: "AKIAJ7AGDJDFA3BM7XPA",
+      awsSecret: "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",
+      awsTag: "thesmartking-21"
   });
 
 exports.renderIndex = function (req, res) {
